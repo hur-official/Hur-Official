@@ -260,13 +260,17 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Premium CTA Button */
         .popup-cta {
-            display: inline-block;
-            padding: 0.95rem 2.5rem;
-            background: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--dark);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 2.5px;
             text-transform: uppercase;
@@ -274,6 +278,9 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 24px rgba(184, 147, 90, 0.3);
+            border: none;
+            cursor: pointer;
         }
         .popup-cta::before {
             content: '';
@@ -282,17 +289,27 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.7s;
         }
         .popup-cta:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(184, 147, 90, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(184, 147, 90, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
         .popup-cta:hover::before {
             left: 100%;
         }
+        .popup-cta svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            transition: transform 0.3s ease;
+        }
+        .popup-cta:hover svg {
+            transform: translateX(4px);
+        }
+
         .popup-skip {
             display: block;
             margin-top: 1rem;
@@ -1051,6 +1068,38 @@
             max-width: 480px;
         }
 
+        /* Sound toggle for cinematic video */
+        .cinematic-sound-toggle {
+            position: absolute;
+            bottom: 4rem;
+            right: 5%;
+            z-index: 4;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(184, 147, 90, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--white);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        .cinematic-sound-toggle:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--dark);
+        }
+        .cinematic-sound-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
         /* ============================================
            REVIEWS SECTION
            ============================================ */
@@ -1550,8 +1599,9 @@
             .rating-big .number { font-size: 3rem; }
             .popup-content { max-width: 95%; }
             .popup-body { padding: 1.5rem; }
-            .cinematic-video-content { bottom: 2.5rem; left: 5%; right: 5%; }
+            .cinematic-video-content { bottom: 2.5rem; left: 5%; right: 5%; max-width: 90%; }
             .cinematic-video-content h2 { font-size: clamp(2rem, 8vw, 3rem); }
+            .cinematic-sound-toggle { bottom: 2.5rem; right: 5%; }
         }
         @media (max-width: 480px) {
             .collections-preview { grid-template-columns: 1fr; }
@@ -1600,7 +1650,13 @@
                 <span class="popup-tag">Ambassador</span>
                 <h3 class="popup-title">Mest <em>Shmavonian</em></h3>
                 <p class="popup-subtitle">The voice and soul behind HUR's newest chapter — introducing our ambassador and the story of Armenian silver.</p>
-                <a href="#areva" class="popup-cta" id="popupCta">Discover the Collection</a>
+                <a href="#areva" class="popup-cta" id="popupCta">
+                    Shop the Collection
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
                 <a href="#" class="popup-skip" id="popupSkip">Continue browsing →</a>
             </div>
         </div>
@@ -1820,7 +1876,7 @@
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection I</span>
-                <h2 class="collection-title">AREVA<br>ԱԵԱ</h2>
+                <h2 class="collection-title">AREVA<br>ԱԱ</h2>
                 <p class="collection-subtitle">by HUR ⛓</p>
                 <p class="collection-desc">A symbol of the sun, rooted in Armenian stone. Reimagined in silver.</p>
                 <p class="collection-desc">Ancient form. Modern silver. ️</p>
@@ -1854,8 +1910,8 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection II</span>
                 <h2 class="collection-title">RUNE</h2>
-                <p class="collection-subtitle">by HUR ⛓</p>
-                <p class="collection-desc">Not everything beautiful is meant to be soft. 🤍</p>
+                <p class="collection-subtitle">by HUR </p>
+                <p class="collection-desc">Not everything beautiful is meant to be soft. </p>
                 <p class="collection-desc">RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.</p>
                 <p class="collection-desc">A reminder that strength doesn't always need to be loud.</p>
                 <p class="collection-desc" style="margin-top: 1.5rem; font-style: italic;">Wear your mark.</p>
@@ -1922,9 +1978,9 @@
                 <p class="collection-subtitle">by HUR ️💥</p>
                 <p class="collection-desc">Our first design featuring a stone.</p>
                 <p class="collection-desc">A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.</p>
-                <p class="collection-desc">A new expression of HUR. </p>
+                <p class="collection-desc">A new expression of HUR. ⛓</p>
                 <p class="collection-desc-armenian" style="margin-top: 1.5rem;">Առաջին անգամ՝ քար HUR-ի զարդերում։</p>
-                <p class="collection-desc-armenian">Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի ր յուրահատուկ բնավորությունը։</p>
+                <p class="collection-desc-armenian">Քարի մեղմ այլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի իր յուրահատուկ բնավորությունը։</p>
             </div>
         </div>
 
@@ -2049,10 +2105,10 @@
     </div></div>
 
     <!-- ============================================
-         FULL-SCREEN CINEMATIC VIDEO (replaces About section)
+         FULL-SCREEN CINEMATIC VIDEO (with auto-sound on scroll)
          ============================================ -->
     <section class="cinematic-video" id="about">
-        <video autoplay muted loop playsinline preload="auto">
+        <video muted loop playsinline preload="auto" id="cinematicVideo">
             <source src="https://cdn.shopify.com/videos/c/o/v/8470f88b86424be69269f5a8c380a833.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -2061,6 +2117,13 @@
             <h2>Crafted with <em>Purpose</em><br>& Passion</h2>
             <p>Each piece is a story — rooted in Armenian heritage, shaped by modern hands, and designed to become part of yours.</p>
         </div>
+        <button class="cinematic-sound-toggle" id="cinematicSoundToggle" aria-label="Toggle sound">
+            <svg id="cinematicSoundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <line x1="23" y1="9" x2="17" y2="15"/>
+                <line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+        </button>
     </section>
 
     <!-- ============================================
@@ -2363,10 +2426,11 @@
     </footer>
 
     <!-- ============================================
-         POPUP SCRIPT
+         SCRIPTS
          ============================================ -->
     <script>
         (function() {
+            // ============ POPUP LOGIC ============
             const popup = document.getElementById('entryPopup');
             const closeBtn = document.getElementById('popupClose');
             const skipBtn = document.getElementById('popupSkip');
@@ -2380,6 +2444,7 @@
             const footerAboutLink = document.getElementById('footerAboutLink');
 
             let hasBeenShown = false;
+            let autoCloseTimer = null;
 
             function openPopup() {
                 popup.classList.add('active');
@@ -2394,6 +2459,11 @@
                 if (soundToggle) {
                     soundToggle.style.display = 'none';
                 }
+                // Clear any existing auto-close timer
+                if (autoCloseTimer) {
+                    clearTimeout(autoCloseTimer);
+                    autoCloseTimer = null;
+                }
             }
 
             function closePopup() {
@@ -2401,6 +2471,10 @@
                 document.body.style.overflow = '';
                 if (video) {
                     video.pause();
+                }
+                if (autoCloseTimer) {
+                    clearTimeout(autoCloseTimer);
+                    autoCloseTimer = null;
                 }
             }
 
@@ -2415,6 +2489,7 @@
                         if (soundToggle) soundToggle.style.display = 'flex';
                         updateSoundIcon(false);
                     }).catch(function() {
+                        // Autoplay with sound blocked — fall back to muted
                         video.muted = true;
                         video.play().then(function() {
                             if (playOverlay) playOverlay.classList.add('hidden');
@@ -2433,6 +2508,17 @@
                 }
             }
 
+            // Auto-close 2 seconds after video ends
+            if (video) {
+                video.addEventListener('ended', function() {
+                    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+                    autoCloseTimer = setTimeout(function() {
+                        closePopup();
+                    }, 2000);
+                });
+            }
+
+            // Play button
             if (playButton) {
                 playButton.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2445,6 +2531,7 @@
                 });
             }
 
+            // Sound toggle
             if (soundToggle) {
                 soundToggle.addEventListener('click', function() {
                     if (!video) return;
@@ -2453,6 +2540,7 @@
                 });
             }
 
+            // Close handlers
             closeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 closePopup();
@@ -2475,6 +2563,7 @@
                 }
             });
 
+            // About Us nav link opens popup
             if (aboutUsLink) {
                 aboutUsLink.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -2488,12 +2577,83 @@
                 });
             }
 
+            // Auto-show popup on first visit
             setTimeout(function() {
                 if (!hasBeenShown) {
                     hasBeenShown = true;
                     openPopup();
                 }
             }, 600);
+
+            // ============ CINEMATIC VIDEO — AUTO SOUND ON SCROLL ============
+            const cinematicVideo = document.getElementById('cinematicVideo');
+            const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
+            const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
+            let userHasInteracted = false;
+            let cinematicPlayed = false;
+
+            // Track first user interaction to unlock audio
+            function unlockAudio() {
+                userHasInteracted = true;
+                document.removeEventListener('click', unlockAudio);
+                document.removeEventListener('touchstart', unlockAudio);
+                document.removeEventListener('keydown', unlockAudio);
+            }
+            document.addEventListener('click', unlockAudio);
+            document.addEventListener('touchstart', unlockAudio);
+            document.addEventListener('keydown', unlockAudio);
+
+            function updateCinematicSoundIcon(isMuted) {
+                if (isMuted) {
+                    cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+                } else {
+                    cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+                }
+            }
+
+            if (cinematicVideo && cinematicSoundToggle) {
+                // Start muted and autoplay (browsers allow this)
+                cinematicVideo.muted = true;
+                cinematicVideo.loop = true;
+
+                // IntersectionObserver to detect when section is visible
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !cinematicPlayed) {
+                            cinematicPlayed = true;
+                            const playPromise = cinematicVideo.play();
+                            if (playPromise !== undefined) {
+                                playPromise.then(function() {
+                                    // If user has already interacted, try to unmute
+                                    if (userHasInteracted) {
+                                        cinematicVideo.muted = false;
+                                        updateCinematicSoundIcon(false);
+                                    }
+                                }).catch(function() {
+                                    // Autoplay blocked — keep muted
+                                });
+                            }
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                observer.observe(cinematicVideo.parentElement);
+
+                // Manual sound toggle
+                cinematicSoundToggle.addEventListener('click', function() {
+                    if (!cinematicVideo) return;
+                    cinematicVideo.muted = !cinematicVideo.muted;
+                    updateCinematicSoundIcon(cinematicVideo.muted);
+                });
+
+                // Once user interacts anywhere, unmute cinematic video if playing
+                document.addEventListener('click', function() {
+                    if (cinematicVideo && !cinematicVideo.muted === false && cinematicPlayed) {
+                        cinematicVideo.muted = false;
+                        updateCinematicSoundIcon(false);
+                    }
+                }, { once: true });
+            }
         })();
     </script>
 
