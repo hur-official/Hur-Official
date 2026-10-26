@@ -65,10 +65,8 @@
         }
         .popup-content {
             position: relative;
-            max-width: 520px;
+            max-width: 460px;
             width: 100%;
-            max-height: 92vh;
-            overflow-y: auto;
             background: var(--darker);
             border-radius: 12px;
             box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8);
@@ -76,7 +74,6 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(184, 147, 90, 0.25);
         }
-        .popup-content::-webkit-scrollbar { width: 0; }
         .popup-overlay.active .popup-content {
             transform: scale(1) translateY(0);
         }
@@ -84,10 +81,10 @@
         /* Close button — outside video, always visible */
         .popup-close {
             position: absolute;
-            top: -16px;
-            right: -16px;
-            width: 44px;
-            height: 44px;
+            top: -14px;
+            right: -14px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: var(--dark);
             border: 1px solid rgba(184, 147, 90, 0.5);
@@ -98,7 +95,7 @@
             z-index: 20;
             transition: var(--transition);
             color: var(--white);
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
@@ -125,6 +122,45 @@
             object-position: center 15%;
         }
 
+        /* Video overlay text — Ambassador name on the video */
+        .video-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 1.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+            z-index: 3;
+            pointer-events: none;
+            text-align: left;
+        }
+        .video-overlay-text .popup-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            padding: 0.3rem 0.9rem;
+            border: 1px solid rgba(184, 147, 90, 0.5);
+            border-radius: 50px;
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        .video-overlay-text .popup-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 4vw, 1.85rem);
+            font-weight: 500;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.3px;
+        }
+        .video-overlay-text .popup-title em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
         .play-overlay {
             position: absolute;
             inset: 0;
@@ -148,8 +184,8 @@
             border-color: var(--gold);
         }
         .play-button {
-            width: 80px;
-            height: 80px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -173,13 +209,13 @@
             100% { transform: scale(1.4); opacity: 0; }
         }
         .play-button svg {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             fill: var(--white);
             margin-left: 4px;
         }
         .play-text {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--white);
@@ -189,8 +225,8 @@
             position: absolute;
             bottom: 1rem;
             right: 1rem;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: rgba(10, 10, 10, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -209,15 +245,16 @@
             color: var(--dark);
         }
         .sound-toggle svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
         }
 
+        /* Popup body — minimal, CTA always visible */
         .popup-body {
-            padding: 2rem 1.75rem 2rem;
+            padding: 1.5rem 1.5rem 1.75rem;
             text-align: center;
             color: var(--white);
             position: relative;
@@ -228,44 +265,9 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: var(--gold);
-        }
-        .popup-tag {
-            display: inline-block;
-            font-size: 0.65rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold-light);
-            margin-bottom: 1rem;
-            font-weight: 500;
-            padding: 0.4rem 1.25rem;
-            border: 1px solid rgba(184, 147, 90, 0.4);
-            border-radius: 50px;
-        }
-        .popup-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.6rem, 3vw, 2rem);
-            font-weight: 500;
-            color: var(--white);
-            margin-bottom: 0.6rem;
-            line-height: 1.2;
-            letter-spacing: -0.3px;
-        }
-        .popup-title em {
-            font-style: italic;
-            color: var(--gold-light);
-        }
-        .popup-subtitle {
-            font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            max-width: 420px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* Premium CTA Button */
@@ -273,11 +275,11 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            padding: 0.95rem 2.25rem;
+            padding: 0.9rem 2rem;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--dark);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
             letter-spacing: 2.5px;
             text-transform: uppercase;
@@ -288,7 +290,7 @@
             box-shadow: 0 8px 24px rgba(184, 147, 90, 0.35);
             border: none;
             cursor: pointer;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
         .popup-cta::before {
             content: '';
@@ -322,7 +324,7 @@
 
         .popup-skip {
             display: block;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
             cursor: pointer;
@@ -1076,7 +1078,6 @@
             max-width: 480px;
         }
 
-        /* Sound toggle for cinematic video */
         .cinematic-sound-toggle {
             position: absolute;
             bottom: 4rem;
@@ -1112,7 +1113,7 @@
         }
 
         /* ============================================
-           REVIEWS SECTION
+           REVIEWS SECTION — Premium Minimal
            ============================================ */
         .reviews {
             position: relative;
@@ -1153,7 +1154,7 @@
         }
         .reviews-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
         .reviews-header .section-label {
             font-size: 0.7rem;
@@ -1166,74 +1167,28 @@
         }
         .reviews-header h2 {
             font-family: var(--font-heading);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             font-weight: 500;
             color: var(--white);
             letter-spacing: -0.5px;
-            margin-bottom: 1rem;
+            line-height: 1.15;
         }
         .reviews-header h2 em {
             font-style: italic;
             color: var(--gold-light);
         }
-        .reviews-header p {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.6);
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
+        .reviews-header .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.5rem auto 0;
         }
-        .rating-summary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-        .rating-big {
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-        .rating-big .number {
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            font-weight: 600;
-            color: var(--white);
-            line-height: 1;
-        }
-        .rating-big .out-of {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.4);
-            font-weight: 300;
-        }
-        .rating-stars {
-            display: flex;
-            gap: 0.25rem;
-        }
-        .rating-stars svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--gold);
-            stroke: var(--gold);
-        }
-        .rating-text {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-        .rating-text strong {
-            color: var(--gold-light);
-            font-weight: 500;
-        }
+
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
         .review-card {
             position: relative;
@@ -1503,8 +1458,16 @@
             cursor: pointer;
             transition: var(--transition);
             font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
         }
-        .submit-btn:hover { background: var(--gold); border-color: var(--gold); }
+        .submit-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        .submit-btn:hover { background: #25D366; border-color: #25D366; }
 
         /* ============================================
            FOOTER
@@ -1606,10 +1569,6 @@
             .reviews-grid { grid-template-columns: 1fr; }
             .reviews { padding: 5rem 5% 4rem; }
             .reviews::before { font-size: 12rem; }
-            .rating-summary { gap: 1rem; }
-            .rating-big .number { font-size: 3rem; }
-            .popup-content { max-width: 95%; }
-            .popup-body { padding: 1.5rem; }
             .cinematic-video-content { bottom: 5rem; left: 5%; right: 5%; max-width: 90%; }
             .cinematic-video-content h2 { font-size: clamp(2rem, 8vw, 3rem); }
             .cinematic-sound-toggle { bottom: 5rem; right: 5%; }
@@ -1618,6 +1577,12 @@
                 right: 0.75rem;
                 width: 38px;
                 height: 38px;
+            }
+            .video-overlay-text {
+                padding: 2rem 1rem 1rem;
+            }
+            .video-overlay-text .popup-title {
+                font-size: 1.4rem;
             }
         }
         @media (max-width: 480px) {
@@ -1629,8 +1594,8 @@
             .marquee-item { font-size: 0.65rem; letter-spacing: 2px; padding: 0 1rem; }
             .marquee-item .brand { font-size: 0.75rem; }
             .popup-overlay { padding: 1rem; }
-            .popup-title { font-size: 1.4rem; }
             .play-button { width: 64px; height: 64px; }
+            .popup-content { max-width: 95%; }
         }
     </style>
 </head>
@@ -1648,6 +1613,12 @@
                     Your browser does not support the video tag.
                 </video>
 
+                <!-- Ambassador name overlaid on the video -->
+                <div class="video-overlay-text">
+                    <span class="popup-tag">Ambassador</span>
+                    <h3 class="popup-title">Mest <em>Shmavonian</em></h3>
+                </div>
+
                 <div class="play-overlay" id="playOverlay">
                     <div class="play-button" id="playButton">
                         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -1664,9 +1635,6 @@
                 </button>
             </div>
             <div class="popup-body">
-                <span class="popup-tag">Ambassador</span>
-                <h3 class="popup-title">Mest <em>Shmavonian</em></h3>
-                <p class="popup-subtitle">The voice and soul behind HUR's newest chapter — introducing our ambassador and the story of Armenian silver.</p>
                 <a href="#areva" class="popup-cta" id="popupCta">
                     Shop the Collection
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -1893,8 +1861,8 @@
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection I</span>
-                <h2 class="collection-title">AREVA<br>ԱՐԵՎԱ</h2>
-                <p class="collection-subtitle">by HUR ⛓🤍</p>
+                <h2 class="collection-title">AREVA<br>ԱՐԵԱ</h2>
+                <p class="collection-subtitle">by HUR ⛓</p>
                 <p class="collection-desc">A symbol of the sun, rooted in Armenian stone. Reimagined in silver.</p>
                 <p class="collection-desc">Ancient form. Modern silver. ♾️</p>
             </div>
@@ -1959,10 +1927,10 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection III</span>
                 <h2 class="collection-title">HALO</h2>
-                <p class="collection-subtitle">by HUR 🤍⛓</p>
-                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ նտրությունն է։</p>
-                <p class="collection-desc-armenian">HALO-ն մարմնավորում է ույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
-                <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
+                <p class="collection-subtitle">by HUR ⛓</p>
+                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
+                <p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
+                <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարման, ամբողջականության և լուռ ուժի մասին։</p>
                 <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
                 <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։</p>
             </div>
@@ -1992,11 +1960,11 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection IV</span>
                 <h2 class="collection-title">GLOW<br>Cuff</h2>
-                <p class="collection-subtitle">by HUR 🧡️</p>
+                <p class="collection-subtitle">by HUR 🧡️💥</p>
                 <p class="collection-desc">Our first design featuring a stone.</p>
                 <p class="collection-desc">A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.</p>
                 <p class="collection-desc">A new expression of HUR. ⛓</p>
-                <p class="collection-desc-armenian" style="margin-top: 1.5rem;">Առաջին անգամ՝ քար HUR-ի զարդերում։</p>
+                <p class="collection-desc-armenian" style="margin-top: 1.5rem;">Առաջին անգամ քար HUR-ի զարդերում։</p>
                 <p class="collection-desc-armenian">Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի ր յուրահատուկ բնավորությունը։</p>
             </div>
         </div>
@@ -2022,7 +1990,7 @@
         <a href="#lb-a2" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     </div></div>
     <div id="lb-a2" class="lightbox"><div class="lightbox-content">
-        <a href="#areva" class="lightbox-close">✕</a>
+        <a href="#areva" class="lightbox-close"></a>
         <a href="#lb-a1" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
         <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.30.jpg?v=1792575373" alt="AREVA piece">
         <a href="#lb-a3" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
@@ -2144,28 +2112,14 @@
     </section>
 
     <!-- ============================================
-         REVIEWS SECTION
+         REVIEWS SECTION — Premium Minimal
          ============================================ -->
     <section class="reviews" id="reviews">
         <div class="reviews-inner">
             <div class="reviews-header">
-                <span class="section-label">Voices of HUR</span>
-                <h2>Stories from those who <em>wear the mark</em></h2>
-                <p>Every piece carries a story. These are the voices of the people who chose HUR — and made it their own.</p>
-                <div class="rating-summary">
-                    <div class="rating-big">
-                        <span class="number">4.9</span>
-                        <span class="out-of">/ 5</span>
-                    </div>
-                    <div class="rating-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div class="rating-text">Based on <strong>5,000+</strong> happy customers</div>
-                </div>
+                <span class="section-label">Client Voices</span>
+                <h2>Honest reviews and impressions<br>from our <em>clients</em></h2>
+                <div class="divider"></div>
             </div>
 
             <div class="reviews-grid">
@@ -2345,7 +2299,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                         <circle cx="12" cy="10" r="3"/>
                     </svg>
-                    <span>Istanbul, Turkey</span>
+                    <span>Yerevan, Armenia</span>
                 </li>
                 <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2357,12 +2311,15 @@
                 </li>
             </ul>
         </div>
-        <form class="contact-form">
-            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-            <div class="form-group"><input type="email" placeholder="Your Email" required></div>
-            <div class="form-group"><input type="text" placeholder="Subject"></div>
-            <div class="form-group"><textarea placeholder="Your Message" required></textarea></div>
-            <button type="submit" class="submit-btn">Send Message</button>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group"><input type="text" id="contactName" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="email" id="contactEmail" placeholder="Your Email" required></div>
+            <div class="form-group"><input type="text" id="contactSubject" placeholder="Subject"></div>
+            <div class="form-group"><textarea id="contactMessage" placeholder="Your Message" required></textarea></div>
+            <button type="submit" class="submit-btn">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Send via WhatsApp
+            </button>
         </form>
     </section>
 
@@ -2438,7 +2395,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 HUR Official. All rights reserved. Crafted with love in Istanbul.</p>
+            <p>&copy; 2026 HUR Official. All rights reserved. Crafted with love in Yerevan.</p>
         </div>
     </footer>
 
@@ -2602,7 +2559,6 @@
             let userInteracted = false;
             let cinematicSectionVisible = false;
 
-            // Unlock audio on first user interaction
             function unlockAudio() {
                 userInteracted = true;
                 document.removeEventListener('click', unlockAudio);
@@ -2624,29 +2580,22 @@
             }
 
             if (cinematicVideo) {
-                // Start muted, autoplay allowed
                 cinematicVideo.muted = true;
                 cinematicVideo.loop = true;
 
-                // Try to autoplay muted
                 const playPromise = cinematicVideo.play();
                 if (playPromise !== undefined) {
-                    playPromise.catch(function() {
-                        // Autoplay blocked — will start when in view
-                    });
+                    playPromise.catch(function() {});
                 }
 
-                // IntersectionObserver — unmute when in view, mute when out
                 const observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
                         cinematicSectionVisible = entry.isIntersecting;
 
                         if (entry.isIntersecting) {
-                            // In view — ensure playing
                             const p = cinematicVideo.play();
                             if (p !== undefined) {
                                 p.then(function() {
-                                    // If user has interacted, unmute
                                     if (userInteracted) {
                                         cinematicVideo.muted = false;
                                         setCinematicSoundIcon(false);
@@ -2654,7 +2603,6 @@
                                 }).catch(function() {});
                             }
                         } else {
-                            // Out of view — mute (keep playing for smooth re-entry)
                             cinematicVideo.muted = true;
                             setCinematicSoundIcon(true);
                         }
@@ -2663,24 +2611,45 @@
 
                 observer.observe(cinematicVideo.parentElement);
 
-                // Manual sound toggle
                 if (cinematicSoundToggle) {
                     cinematicSoundToggle.addEventListener('click', function() {
                         if (!cinematicVideo) return;
                         cinematicVideo.muted = !cinematicVideo.muted;
                         setCinematicSoundIcon(cinematicVideo.muted);
-                        // Mark as interacted so viewport logic respects user choice
                         if (!cinematicVideo.muted) userInteracted = true;
                     });
                 }
 
-                // Once user clicks anywhere, unmute if in view
                 document.addEventListener('click', function() {
                     if (cinematicVideo && cinematicSectionVisible && cinematicVideo.muted) {
                         cinematicVideo.muted = false;
                         setCinematicSoundIcon(false);
                     }
                 }, { once: true });
+            }
+
+            // ============ CONTACT FORM → WHATSAPP ============
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('contactName').value.trim();
+                    const email = document.getElementById('contactEmail').value.trim();
+                    const subject = document.getElementById('contactSubject').value.trim();
+                    const message = document.getElementById('contactMessage').value.trim();
+
+                    let text = 'Hello HUR!%0A';
+                    if (name) text += 'Name: ' + encodeURIComponent(name) + '%0A';
+                    if (email) text += 'Email: ' + encodeURIComponent(email) + '%0A';
+                    if (subject) text += 'Subject: ' + encodeURIComponent(subject) + '%0A';
+                    if (message) text += 'Message: ' + encodeURIComponent(message) + '%0A';
+
+                    const whatsappUrl = 'https://wa.me/37455977911?text=' + text;
+                    window.open(whatsappUrl, '_blank');
+
+                    // Reset form
+                    contactForm.reset();
+                });
             }
         })();
     </script>
