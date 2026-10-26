@@ -43,7 +43,7 @@
         }
 
         /* ============================================
-           POPUP MODAL — Ambassador Video (Portrait Frame)
+           POPUP MODAL — Ambassador Video
            ============================================ */
         .popup-overlay {
             position: fixed;
@@ -54,7 +54,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.6s ease, visibility 0.6s ease;
@@ -65,38 +65,42 @@
         }
         .popup-content {
             position: relative;
-            max-width: 560px;
+            max-width: 520px;
             width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
             background: var(--darker);
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8);
             transform: scale(0.92) translateY(20px);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(184, 147, 90, 0.25);
         }
+        .popup-content::-webkit-scrollbar { width: 0; }
         .popup-overlay.active .popup-content {
             transform: scale(1) translateY(0);
         }
+
+        /* Close button — outside video, always visible */
         .popup-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: -16px;
+            right: -16px;
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(10, 10, 10, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: var(--dark);
+            border: 1px solid rgba(184, 147, 90, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 10;
+            z-index: 20;
             transition: var(--transition);
             color: var(--white);
             font-size: 1.1rem;
             text-decoration: none;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         .popup-close:hover {
             background: var(--gold);
@@ -104,12 +108,14 @@
             color: var(--dark);
             transform: rotate(90deg);
         }
+
         .popup-video-wrapper {
             position: relative;
             width: 100%;
             background: #000;
             aspect-ratio: 4 / 5;
             overflow: hidden;
+            border-radius: 12px 12px 0 0;
         }
         .popup-video-wrapper video {
             width: 100%;
@@ -122,7 +128,7 @@
         .play-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 100%);
+            background: linear-gradient(135deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.4) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -173,7 +179,7 @@
             margin-left: 4px;
         }
         .play-text {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--white);
@@ -209,8 +215,9 @@
             fill: none;
             stroke-width: 2;
         }
+
         .popup-body {
-            padding: 2rem 1.75rem 1.75rem;
+            padding: 2rem 1.75rem 2rem;
             text-align: center;
             color: var(--white);
             position: relative;
@@ -239,24 +246,24 @@
         }
         .popup-title {
             font-family: var(--font-heading);
-            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            font-size: clamp(1.6rem, 3vw, 2rem);
             font-weight: 500;
             color: var(--white);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
             line-height: 1.2;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
         }
         .popup-title em {
             font-style: italic;
             color: var(--gold-light);
         }
         .popup-subtitle {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: rgba(255, 255, 255, 0.6);
             font-weight: 300;
             margin-bottom: 1.5rem;
-            line-height: 1.6;
-            max-width: 460px;
+            line-height: 1.5;
+            max-width: 420px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -265,12 +272,12 @@
         .popup-cta {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2.5rem;
+            gap: 0.6rem;
+            padding: 0.95rem 2.25rem;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--dark);
             text-decoration: none;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2.5px;
             text-transform: uppercase;
@@ -278,9 +285,10 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(184, 147, 90, 0.3);
+            box-shadow: 0 8px 24px rgba(184, 147, 90, 0.35);
             border: none;
             cursor: pointer;
+            margin-bottom: 1rem;
         }
         .popup-cta::before {
             content: '';
@@ -293,7 +301,7 @@
             transition: left 0.7s;
         }
         .popup-cta:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 14px 40px rgba(184, 147, 90, 0.5);
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
@@ -304,6 +312,8 @@
             width: 14px;
             height: 14px;
             stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
             transition: transform 0.3s ease;
         }
         .popup-cta:hover svg {
@@ -312,8 +322,7 @@
 
         .popup-skip {
             display: block;
-            margin-top: 1rem;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
             cursor: pointer;
@@ -690,7 +699,6 @@
             inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
             z-index: 1;
-            transition: opacity 0.3s ease;
         }
         .preview-card:hover img { transform: scale(1.06); }
         .preview-card-content {
@@ -1074,8 +1082,8 @@
             bottom: 4rem;
             right: 5%;
             z-index: 4;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             background: rgba(10, 10, 10, 0.7);
             border: 1px solid rgba(184, 147, 90, 0.4);
@@ -1093,11 +1101,14 @@
             color: var(--dark);
         }
         .cinematic-sound-toggle svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
+        }
+        .cinematic-sound-toggle.muted {
+            opacity: 0.7;
         }
 
         /* ============================================
@@ -1599,9 +1610,15 @@
             .rating-big .number { font-size: 3rem; }
             .popup-content { max-width: 95%; }
             .popup-body { padding: 1.5rem; }
-            .cinematic-video-content { bottom: 2.5rem; left: 5%; right: 5%; max-width: 90%; }
+            .cinematic-video-content { bottom: 5rem; left: 5%; right: 5%; max-width: 90%; }
             .cinematic-video-content h2 { font-size: clamp(2rem, 8vw, 3rem); }
-            .cinematic-sound-toggle { bottom: 2.5rem; right: 5%; }
+            .cinematic-sound-toggle { bottom: 5rem; right: 5%; }
+            .popup-close {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 38px;
+                height: 38px;
+            }
         }
         @media (max-width: 480px) {
             .collections-preview { grid-template-columns: 1fr; }
@@ -1620,13 +1637,13 @@
 <body>
 
     <!-- ============================================
-         POPUP MODAL — Ambassador Video (Portrait Frame)
+         POPUP MODAL — Ambassador Video
          ============================================ -->
     <div class="popup-overlay" id="entryPopup">
         <div class="popup-content">
             <a href="#" class="popup-close" id="popupClose" aria-label="Close popup">✕</a>
             <div class="popup-video-wrapper">
-                <video playsinline preload="auto" id="popupVideo" poster="">
+                <video playsinline preload="auto" id="popupVideo">
                     <source src="https://cdn.shopify.com/videos/c/o/v/59b12f49ffe54147a3da4b6e595fab6d.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -1652,7 +1669,7 @@
                 <p class="popup-subtitle">The voice and soul behind HUR's newest chapter — introducing our ambassador and the story of Armenian silver.</p>
                 <a href="#areva" class="popup-cta" id="popupCta">
                     Shop the Collection
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>
                     </svg>
@@ -1815,7 +1832,7 @@
                 <div class="preview-card-content">
                     <div class="preview-card-tag">Collection I</div>
                     <div class="preview-card-title">AREVA</div>
-                    <div class="preview-card-sub">ԱՐԵՎԱ · Sun Symbol</div>
+                    <div class="preview-card-sub">ԱՐՎԱ · Sun Symbol</div>
                 </div>
             </a>
 
@@ -1876,10 +1893,10 @@
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection I</span>
-                <h2 class="collection-title">AREVA<br>ԱԱ</h2>
-                <p class="collection-subtitle">by HUR ⛓</p>
+                <h2 class="collection-title">AREVA<br>ԱՐԵՎԱ</h2>
+                <p class="collection-subtitle">by HUR ⛓🤍</p>
                 <p class="collection-desc">A symbol of the sun, rooted in Armenian stone. Reimagined in silver.</p>
-                <p class="collection-desc">Ancient form. Modern silver. ️</p>
+                <p class="collection-desc">Ancient form. Modern silver. ♾️</p>
             </div>
         </div>
 
@@ -1910,8 +1927,8 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection II</span>
                 <h2 class="collection-title">RUNE</h2>
-                <p class="collection-subtitle">by HUR </p>
-                <p class="collection-desc">Not everything beautiful is meant to be soft. </p>
+                <p class="collection-subtitle">by HUR ⛓</p>
+                <p class="collection-desc">Not everything beautiful is meant to be soft. 🤍</p>
                 <p class="collection-desc">RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.</p>
                 <p class="collection-desc">A reminder that strength doesn't always need to be loud.</p>
                 <p class="collection-desc" style="margin-top: 1.5rem; font-style: italic;">Wear your mark.</p>
@@ -1942,9 +1959,9 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection III</span>
                 <h2 class="collection-title">HALO</h2>
-                <p class="collection-subtitle">by HUR ⛓</p>
-                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
-                <p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
+                <p class="collection-subtitle">by HUR 🤍⛓</p>
+                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ նտրությունն է։</p>
+                <p class="collection-desc-armenian">HALO-ն մարմնավորում է ույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
                 <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
                 <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
                 <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։</p>
@@ -1975,12 +1992,12 @@
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection IV</span>
                 <h2 class="collection-title">GLOW<br>Cuff</h2>
-                <p class="collection-subtitle">by HUR ️💥</p>
+                <p class="collection-subtitle">by HUR 🧡️</p>
                 <p class="collection-desc">Our first design featuring a stone.</p>
                 <p class="collection-desc">A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.</p>
                 <p class="collection-desc">A new expression of HUR. ⛓</p>
                 <p class="collection-desc-armenian" style="margin-top: 1.5rem;">Առաջին անգամ՝ քար HUR-ի զարդերում։</p>
-                <p class="collection-desc-armenian">Քարի մեղմ այլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի իր յուրահատուկ բնավորությունը։</p>
+                <p class="collection-desc-armenian">Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի ր յուրահատուկ բնավորությունը։</p>
             </div>
         </div>
 
@@ -2105,7 +2122,7 @@
     </div></div>
 
     <!-- ============================================
-         FULL-SCREEN CINEMATIC VIDEO (with auto-sound on scroll)
+         FULL-SCREEN CINEMATIC VIDEO
          ============================================ -->
     <section class="cinematic-video" id="about">
         <video muted loop playsinline preload="auto" id="cinematicVideo">
@@ -2117,7 +2134,7 @@
             <h2>Crafted with <em>Purpose</em><br>& Passion</h2>
             <p>Each piece is a story — rooted in Armenian heritage, shaped by modern hands, and designed to become part of yours.</p>
         </div>
-        <button class="cinematic-sound-toggle" id="cinematicSoundToggle" aria-label="Toggle sound">
+        <button class="cinematic-sound-toggle muted" id="cinematicSoundToggle" aria-label="Toggle sound">
             <svg id="cinematicSoundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                 <line x1="23" y1="9" x2="17" y2="15"/>
@@ -2459,7 +2476,6 @@
                 if (soundToggle) {
                     soundToggle.style.display = 'none';
                 }
-                // Clear any existing auto-close timer
                 if (autoCloseTimer) {
                     clearTimeout(autoCloseTimer);
                     autoCloseTimer = null;
@@ -2489,7 +2505,6 @@
                         if (soundToggle) soundToggle.style.display = 'flex';
                         updateSoundIcon(false);
                     }).catch(function() {
-                        // Autoplay with sound blocked — fall back to muted
                         video.muted = true;
                         video.play().then(function() {
                             if (playOverlay) playOverlay.classList.add('hidden');
@@ -2518,7 +2533,6 @@
                 });
             }
 
-            // Play button
             if (playButton) {
                 playButton.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2531,7 +2545,6 @@
                 });
             }
 
-            // Sound toggle
             if (soundToggle) {
                 soundToggle.addEventListener('click', function() {
                     if (!video) return;
@@ -2540,7 +2553,6 @@
                 });
             }
 
-            // Close handlers
             closeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 closePopup();
@@ -2563,7 +2575,6 @@
                 }
             });
 
-            // About Us nav link opens popup
             if (aboutUsLink) {
                 aboutUsLink.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -2577,7 +2588,6 @@
                 });
             }
 
-            // Auto-show popup on first visit
             setTimeout(function() {
                 if (!hasBeenShown) {
                     hasBeenShown = true;
@@ -2585,16 +2595,16 @@
                 }
             }, 600);
 
-            // ============ CINEMATIC VIDEO — AUTO SOUND ON SCROLL ============
+            // ============ CINEMATIC VIDEO — Sound on/off based on viewport ============
             const cinematicVideo = document.getElementById('cinematicVideo');
             const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
             const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
-            let userHasInteracted = false;
-            let cinematicPlayed = false;
+            let userInteracted = false;
+            let cinematicSectionVisible = false;
 
-            // Track first user interaction to unlock audio
+            // Unlock audio on first user interaction
             function unlockAudio() {
-                userHasInteracted = true;
+                userInteracted = true;
                 document.removeEventListener('click', unlockAudio);
                 document.removeEventListener('touchstart', unlockAudio);
                 document.removeEventListener('keydown', unlockAudio);
@@ -2603,54 +2613,72 @@
             document.addEventListener('touchstart', unlockAudio);
             document.addEventListener('keydown', unlockAudio);
 
-            function updateCinematicSoundIcon(isMuted) {
+            function setCinematicSoundIcon(isMuted) {
                 if (isMuted) {
                     cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+                    if (cinematicSoundToggle) cinematicSoundToggle.classList.add('muted');
                 } else {
                     cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+                    if (cinematicSoundToggle) cinematicSoundToggle.classList.remove('muted');
                 }
             }
 
-            if (cinematicVideo && cinematicSoundToggle) {
-                // Start muted and autoplay (browsers allow this)
+            if (cinematicVideo) {
+                // Start muted, autoplay allowed
                 cinematicVideo.muted = true;
                 cinematicVideo.loop = true;
 
-                // IntersectionObserver to detect when section is visible
+                // Try to autoplay muted
+                const playPromise = cinematicVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function() {
+                        // Autoplay blocked — will start when in view
+                    });
+                }
+
+                // IntersectionObserver — unmute when in view, mute when out
                 const observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
-                        if (entry.isIntersecting && !cinematicPlayed) {
-                            cinematicPlayed = true;
-                            const playPromise = cinematicVideo.play();
-                            if (playPromise !== undefined) {
-                                playPromise.then(function() {
-                                    // If user has already interacted, try to unmute
-                                    if (userHasInteracted) {
+                        cinematicSectionVisible = entry.isIntersecting;
+
+                        if (entry.isIntersecting) {
+                            // In view — ensure playing
+                            const p = cinematicVideo.play();
+                            if (p !== undefined) {
+                                p.then(function() {
+                                    // If user has interacted, unmute
+                                    if (userInteracted) {
                                         cinematicVideo.muted = false;
-                                        updateCinematicSoundIcon(false);
+                                        setCinematicSoundIcon(false);
                                     }
-                                }).catch(function() {
-                                    // Autoplay blocked — keep muted
-                                });
+                                }).catch(function() {});
                             }
+                        } else {
+                            // Out of view — mute (keep playing for smooth re-entry)
+                            cinematicVideo.muted = true;
+                            setCinematicSoundIcon(true);
                         }
                     });
-                }, { threshold: 0.4 });
+                }, { threshold: 0.5 });
 
                 observer.observe(cinematicVideo.parentElement);
 
                 // Manual sound toggle
-                cinematicSoundToggle.addEventListener('click', function() {
-                    if (!cinematicVideo) return;
-                    cinematicVideo.muted = !cinematicVideo.muted;
-                    updateCinematicSoundIcon(cinematicVideo.muted);
-                });
+                if (cinematicSoundToggle) {
+                    cinematicSoundToggle.addEventListener('click', function() {
+                        if (!cinematicVideo) return;
+                        cinematicVideo.muted = !cinematicVideo.muted;
+                        setCinematicSoundIcon(cinematicVideo.muted);
+                        // Mark as interacted so viewport logic respects user choice
+                        if (!cinematicVideo.muted) userInteracted = true;
+                    });
+                }
 
-                // Once user interacts anywhere, unmute cinematic video if playing
+                // Once user clicks anywhere, unmute if in view
                 document.addEventListener('click', function() {
-                    if (cinematicVideo && !cinematicVideo.muted === false && cinematicPlayed) {
+                    if (cinematicVideo && cinematicSectionVisible && cinematicVideo.muted) {
                         cinematicVideo.muted = false;
-                        updateCinematicSoundIcon(false);
+                        setCinematicSoundIcon(false);
                     }
                 }, { once: true });
             }
