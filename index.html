@@ -513,7 +513,7 @@
         .faq-close:hover { background: var(--dark); color: var(--white); }
 
         /* ============================================
-           COLLECTION ORDER BUTTON (Cart + icon)
+           COLLECTION ORDER BUTTON
            ============================================ */
         .collection-order-trigger {
             display: inline-flex;
@@ -527,7 +527,7 @@
             border-radius: 50px;
             cursor: pointer;
             font-family: var(--font-body);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -542,8 +542,8 @@
             box-shadow: 0 8px 20px rgba(184, 147, 90, 0.3);
         }
         .collection-order-trigger svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
@@ -877,17 +877,9 @@
            COLLECTIONS INTRO + MINI PREVIEW CARDS
            ============================================ */
         .collections-intro {
-            padding: 6rem 5% 3rem;
+            padding: 4rem 5% 2.5rem;
             text-align: center;
             background: var(--white);
-        }
-        .collections-intro .section-label {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-weight: 500;
         }
         .collections-intro h2 {
             font-family: var(--font-heading);
@@ -895,7 +887,7 @@
             font-weight: 500;
             color: var(--dark);
             letter-spacing: -0.5px;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .collections-preview {
@@ -1057,19 +1049,23 @@
             font-size: 1rem;
             line-height: 1.8;
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             font-weight: 300;
         }
-        .collection-block.dark .collection-desc { color: rgba(255,255,255,0.7); }
+        .collection-block.dark .collection-desc { color: rgba(255,255,255,0.75); }
         .collection-desc-armenian {
             font-size: 0.95rem;
             line-height: 1.8;
             color: var(--text-light);
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             font-weight: 300;
         }
         .collection-block.dark .collection-desc-armenian { color: rgba(255,255,255,0.6); }
+        .collection-desc .gold-accent {
+            color: var(--gold);
+            font-weight: 400;
+        }
 
         .collection-products { max-width: 1400px; margin: 0 auto; }
         .collection-products-header {
@@ -1760,7 +1756,7 @@
     <div class="falling-boxes-container" id="fallingBoxesContainer"></div>
 
     <!-- ============================================
-         POPUP MODAL — Ambassador Video (About Us)
+         POPUP MODAL — Ambassador Video
          ============================================ -->
     <div class="popup-overlay" id="entryPopup">
         <div class="popup-content">
@@ -1805,7 +1801,7 @@
     </div>
 
     <!-- ============================================
-         FAQ MODAL — Collection Order (Dynamic)
+         FAQ MODAL — Collection Order
          ============================================ -->
     <div class="faq-overlay" id="faqOverlay">
         <div class="faq-content">
@@ -1847,7 +1843,7 @@
                     </div>
                     <div class="faq-item-title" id="faqRingTitle">Just a ring</div>
                 </div>
-                <div class="faq-item-desc" id="faqRingDesc">Select a single ring from this collection — perfect for a personal statement piece.</div>
+                <div class="faq-item-desc" id="faqRingDesc">Select a single ring from this collection — a personal statement piece.</div>
                 <div class="faq-item-cta">
                     <span>Chat with Sales</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1998,7 +1994,7 @@
     </nav>
 
     <!-- ============================================
-         HERO — Fullscreen Video Banner (Packaging)
+         HERO — Fullscreen Video Banner
          ============================================ -->
     <section class="hero-banner">
         <video autoplay muted loop playsinline preload="auto">
@@ -2023,7 +2019,6 @@
          COLLECTIONS INTRO + MINI PREVIEW CARDS
          ============================================ -->
     <section class="collections-intro" id="collections">
-        <span class="section-label">Our World</span>
         <h2>The Collections</h2>
 
         <div class="collections-preview">
@@ -2038,7 +2033,7 @@
                 <div class="preview-card-content">
                     <div class="preview-card-tag">Collection I</div>
                     <div class="preview-card-title">AREVA</div>
-                    <div class="preview-card-sub">ԱՐԵԱ · Sun Symbol</div>
+                    <div class="preview-card-sub">ԱՐՎԱ · Sun Symbol</div>
                 </div>
             </a>
 
@@ -2098,11 +2093,15 @@
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.33.54.jpg?v=1792575373" alt="AREVA Collection by HUR">
             </div>
             <div class="collection-hero-text">
-                <span class="collection-tag">Collection I</span>
-                <h2 class="collection-title">AREVA<br>ԱԵՎԱ</h2>
-                <p class="collection-subtitle">by HUR </p>
-                <p class="collection-desc">A symbol of the sun, rooted in Armenian stone. Reimagined in silver.</p>
-                <p class="collection-desc">Ancient form. Modern silver. ♾️</p>
+                <h2 class="collection-title">AREVA / ԱՐԵՎԱ<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">by HUR ⛓🤍</span></h2>
+                <p class="collection-desc-armenian">Հայկական քարի մեջ պահպանված արևի խորհրդանիշը՝</p>
+                <p class="collection-desc-armenian">վերաիմաստավորված արծաթի մեջ։</p>
+                <p class="collection-desc" style="margin-top: 1rem;">
+                    <span class="gold-accent">ույս։ Կյանք։ Շարունակություն։</span> 🤍
+                </p>
+                <p class="collection-desc" style="margin-top: 1.25rem;">A symbol of the sun, rooted in Armenian stone.</p>
+                <p class="collection-desc">Reimagined in silver.</p>
+                <p class="collection-desc" style="margin-top: 1rem;">Ancient form. Modern silver. ♾️</p>
                 <button class="collection-order-trigger" data-collection="AREVA">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"/>
@@ -2141,10 +2140,7 @@
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.54.54.jpg?v=1792576557" alt="RUNE Collection by HUR">
             </div>
             <div class="collection-hero-text">
-                <span class="collection-tag">Collection II</span>
-                <h2 class="collection-title">RUNE</h2>
-                <p class="collection-subtitle">by HUR ⛓</p>
-                <p class="collection-desc">Not everything beautiful is meant to be soft. 🤍</p>
+                <h2 class="collection-title">RUNE<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold-light);">by HUR ⛓</span></h2>
                 <p class="collection-desc">RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.</p>
                 <p class="collection-desc">A reminder that strength doesn't always need to be loud.</p>
                 <p class="collection-desc" style="margin-top: 1.5rem; font-style: italic;">Wear your mark.</p>
@@ -2183,14 +2179,13 @@
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.42.jpg?v=1792577243" alt="HALO Collection by HUR">
             </div>
             <div class="collection-hero-text">
-                <span class="collection-tag">Collection III</span>
-                <h2 class="collection-title">HALO</h2>
-                <p class="collection-subtitle">by HUR 🤍</p>
-                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
+                <h2 class="collection-title">HALO<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">Collection 🤍⛓</span></h2>
+                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարակ ընտրությունն է։</p>
                 <p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
-                <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
-                <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
-                <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական ույսը միշտ գալիս է ներսից։</p>
+                <p class="collection-desc-armenian">Յուրաքանչյուր րջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
+                <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը խորհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
+                <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։</p>
+                <p class="collection-desc" style="margin-top: 1.25rem; font-weight: 500;">HALO by HUR</p>
                 <button class="collection-order-trigger" data-collection="HALO">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"/>
@@ -2226,14 +2221,14 @@
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.00.jpg?v=1792577437" alt="GLOW Collection by HUR">
             </div>
             <div class="collection-hero-text">
-                <span class="collection-tag">Collection IV</span>
-                <h2 class="collection-title">GLOW<br>Cuff</h2>
-                <p class="collection-subtitle">by HUR 🧡</p>
+                <h2 class="collection-title">GLOW Cuff<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">by HUR 🧡⛓️‍</span></h2>
                 <p class="collection-desc">Our first design featuring a stone.</p>
                 <p class="collection-desc">A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.</p>
                 <p class="collection-desc">A new expression of HUR. ⛓</p>
-                <p class="collection-desc-armenian" style="margin-top: 1.5rem;">Առաջին անգամ քար HUR-ի զարդերում։</p>
-                <p class="collection-desc-armenian">Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի ր յուրահատուկ բնավորությունը։</p>
+                <p class="collection-desc-armenian" style="margin-top: 1.25rem;">Առաջին անգամ՝ քար HUR-ի զարդերում։</p>
+                <p class="collection-desc-armenian">Քարի մեղմ այլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի իր ուրահատուկ բնավորությունը։</p>
+                <p class="collection-desc-armenian">Նոր դետալ։ Նոր արտահայտություն։</p>
+                <p class="collection-desc" style="margin-top: 1rem; font-weight: 500;">HUR 🤍⛓️🔥</p>
                 <button class="collection-order-trigger" data-collection="GLOW">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"/>
@@ -2684,7 +2679,7 @@
         (function() {
             const WHATSAPP_NUMBER = '37455977911';
 
-            // ============ POPUP LOGIC (About Us) ============
+            // ============ POPUP LOGIC ============
             const popup = document.getElementById('entryPopup');
             const closeBtn = document.getElementById('popupClose');
             const skipBtn = document.getElementById('popupSkip');
@@ -2705,10 +2700,7 @@
             function openPopup() {
                 popup.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                if (video) {
-                    video.pause();
-                    video.currentTime = 0;
-                }
+                if (video) { video.pause(); video.currentTime = 0; }
                 if (playOverlay) playOverlay.classList.remove('hidden');
                 if (soundToggle) soundToggle.style.display = 'none';
                 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
