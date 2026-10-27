@@ -73,7 +73,7 @@ opacity: 0;
 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
 /* ============================================
-POPUP MODAL — Ambassador Video
+POPUP MODAL — Ambassador Video (Auto-play)
 ============================================ */
 .popup-overlay {
 position: fixed;
@@ -179,58 +179,6 @@ letter-spacing: -0.3px;
 .video-overlay-text .popup-title em {
 font-style: italic;
 color: var(--gold-light);
-}
-.play-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.4) 100%);
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 1rem;
-cursor: pointer;
-z-index: 5;
-transition: opacity 0.4s ease;
-}
-.play-overlay.hidden { opacity: 0; pointer-events: none; }
-.play-overlay:hover .play-button {
-transform: scale(1.1);
-background: var(--gold);
-border-color: var(--gold);
-}
-.play-button {
-width: 76px;
-height: 76px;
-border-radius: 50%;
-background: rgba(255, 255, 255, 0.1);
-border: 2px solid rgba(255, 255, 255, 0.3);
-display: flex;
-align-items: center;
-justify-content: center;
-backdrop-filter: blur(20px);
-transition: var(--transition);
-position: relative;
-}
-.play-button::before {
-content: '';
-position: absolute;
-inset: -8px;
-border-radius: 50%;
-border: 1px solid rgba(184, 147, 90, 0.3);
-animation: pulseRing 2s ease-out infinite;
-}
-@keyframes pulseRing {
-0% { transform: scale(1); opacity: 1; }
-100% { transform: scale(1.4); opacity: 0; }
-}
-.play-button svg { width: 26px; height: 26px; fill: var(--white); margin-left: 4px; }
-.play-text {
-font-size: 0.7rem;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(--white);
-font-weight: 500;
 }
 .sound-toggle {
 position: absolute;
@@ -550,8 +498,6 @@ color: var(--dark);
 background: var(--dark);
 color: var(--white);
 }
-
-/* Premium order info text */
 .collection-order-info {
 margin-top: 1.25rem;
 padding: 1.25rem 1.5rem;
@@ -1047,15 +993,6 @@ margin-bottom: 1.5rem;
 letter-spacing: -0.5px;
 }
 .collection-block.dark .collection-title { color: var(--white); }
-.collection-subtitle {
-font-family: var(--font-heading);
-font-size: 1.3rem;
-font-style: italic;
-font-weight: 400;
-margin-bottom: 1.5rem;
-color: var(--gold);
-}
-.collection-block.dark .collection-subtitle { color: var(--gold-light); }
 .collection-desc {
 font-size: 1rem;
 line-height: 1.8;
@@ -1731,13 +1668,8 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 .video-overlay-text { padding: 2rem 1rem 1rem; }
 .video-overlay-text .popup-title { font-size: 1.4rem; }
 .faq-content { padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom, 0)); }
-.collection-order-trigger {
-width: 100%;
-justify-content: center;
-}
-.collection-order-info {
-max-width: 100%;
-}
+.collection-order-trigger { width: 100%; justify-content: center; }
+.collection-order-info { max-width: 100%; }
 }
 @media (max-width: 480px) {
 .collections-preview { grid-template-columns: 1fr; }
@@ -1748,7 +1680,6 @@ max-width: 100%;
 .marquee-item { font-size: 0.65rem; letter-spacing: 2px; padding: 0 1rem; }
 .marquee-item .brand { font-size: 0.75rem; }
 .popup-overlay { padding: 1rem; }
-.play-button { width: 64px; height: 64px; }
 .popup-content { max-width: 95%; }
 .falling-box { width: 45px; height: 55px; }
 }
@@ -1758,13 +1689,13 @@ max-width: 100%;
 <!-- Falling boxes container -->
 <div class="falling-boxes-container" id="fallingBoxesContainer"></div>
 <!-- ============================================
-POPUP MODAL — Ambassador Video
+POPUP MODAL — Ambassador Video (Auto-play, no play button)
 ============================================ -->
 <div class="popup-overlay" id="entryPopup">
 <div class="popup-content">
 <a href="#" class="popup-close" id="popupClose" aria-label="Close popup">✕</a>
 <div class="popup-video-wrapper">
-<video playsinline preload="auto" id="popupVideo">
+<video playsinline preload="auto" id="popupVideo" muted>
 <source src="https://cdn.shopify.com/videos/c/o/v/59b12f49ffe54147a3da4b6e595fab6d.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -1772,17 +1703,11 @@ Your browser does not support the video tag.
 <span class="popup-tag">Ambassador</span>
 <h3 class="popup-title">Mest <em>Shmavonian</em></h3>
 </div>
-<div class="play-overlay" id="playOverlay">
-<div class="play-button" id="playButton">
-<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-</div>
-<span class="play-text">Play with Sound</span>
-</div>
-<button class="sound-toggle" id="soundToggle" style="display:none;" aria-label="Toggle sound">
+<button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
 <svg id="soundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+<line x1="23" y1="9" x2="17" y2="15"/>
+<line x1="17" y1="9" x2="23" y2="15"/>
 </svg>
 </button>
 </div>
@@ -1820,7 +1745,7 @@ FAQ MODAL — Collection Order (2 Options)
 </div>
 <div class="faq-item-title" id="faqFullSetTitle">I want the full set</div>
 </div>
-<div class="faq-item-desc">Get the complete collection with our signature HUR packaging — curated by Mest herself.</div>
+<div class="faq-item-desc" id="faqFullSetDesc">Get the complete collection with our signature HUR packaging — curated by Mest herself.</div>
 <div class="faq-item-cta">
 <span>Chat with Mest</span>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1840,7 +1765,7 @@ FAQ MODAL — Collection Order (2 Options)
 </div>
 <div class="faq-item-title" id="faqSeparateTitle">I want to buy separately</div>
 </div>
-<div class="faq-item-desc">Connect with our sales manager to choose individual pieces from this collection.</div>
+<div class="faq-item-desc" id="faqSeparateDesc">Connect with our sales manager to choose individual pieces from this collection.</div>
 <div class="faq-item-cta">
 <span>Chat with Sales</span>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1980,7 +1905,7 @@ COLLECTIONS INTRO + MINI PREVIEW CARDS
 <div class="preview-card-content">
 <div class="preview-card-tag">Collection I</div>
 <div class="preview-card-title">AREVA</div>
-<div class="preview-card-sub">ԱՐԵՎԱ · Sun Symbol</div>
+<div class="preview-card-sub">ԱՐՎԱ · Sun Symbol</div>
 </div>
 </a>
 <a href="#rune" class="preview-card">
@@ -2057,7 +1982,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2101,7 +2026,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2128,9 +2053,9 @@ COLLECTION 3 — HALO
 <div class="collection-hero-text">
 <h2 class="collection-title">HALO<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">Collection 🤍⛓</span></h2>
 <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
-<p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, արևի և հավասարակշռության ներդաշնակությունը։</p>
+<p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
 <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
-<p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը խորհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
+<p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
 <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։</p>
 <p class="collection-desc" style="margin-top: 1.25rem; font-weight: 500;">HALO by HUR</p>
 <button class="collection-order-trigger" data-collection="HALO">
@@ -2145,7 +2070,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2190,7 +2115,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2616,14 +2541,12 @@ SCRIPTS
 <script>
 (function() {
 const WHATSAPP_NUMBER = '37455977911';
-// ============ POPUP LOGIC ============
+// ============ POPUP LOGIC (Auto-play, no play button) ============
 const popup = document.getElementById('entryPopup');
 const closeBtn = document.getElementById('popupClose');
 const skipBtn = document.getElementById('popupSkip');
 const ctaBtn = document.getElementById('popupCta');
 const video = document.getElementById('popupVideo');
-const playOverlay = document.getElementById('playOverlay');
-const playButton = document.getElementById('playButton');
 const soundToggle = document.getElementById('soundToggle');
 const soundIcon = document.getElementById('soundIcon');
 const aboutUsLink = document.getElementById('aboutUsLink');
@@ -2632,15 +2555,36 @@ const fallingBoxesContainer = document.getElementById('fallingBoxesContainer');
 let hasBeenShown = false;
 let autoCloseTimer = null;
 let boxesInterval = null;
+let popupAudioUnlocked = false;
+
 function openPopup() {
 popup.classList.add('active');
 document.body.style.overflow = 'hidden';
-if (video) { video.pause(); video.currentTime = 0; }
-if (playOverlay) playOverlay.classList.remove('hidden');
-if (soundToggle) soundToggle.style.display = 'none';
+if (video) {
+video.currentTime = 0;
+// Try to autoplay with sound if user has already interacted
+if (popupAudioUnlocked) {
+video.muted = false;
+updateSoundIcon(false);
+} else {
+video.muted = true;
+updateSoundIcon(true);
+}
+const playPromise = video.play();
+if (playPromise !== undefined) {
+playPromise.catch(function() {
+// Autoplay blocked — keep muted and try again on next interaction
+video.muted = true;
+updateSoundIcon(true);
+video.play().catch(function() {});
+});
+}
+}
+if (soundToggle) soundToggle.style.display = 'flex';
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 startFallingBoxes();
 }
+
 function closePopup() {
 popup.classList.remove('active');
 document.body.style.overflow = '';
@@ -2648,26 +2592,7 @@ if (video) video.pause();
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 stopFallingBoxes();
 }
-function playVideo() {
-if (!video) return;
-video.muted = false;
-video.loop = false;
-const playPromise = video.play();
-if (playPromise !== undefined) {
-playPromise.then(function() {
-if (playOverlay) playOverlay.classList.add('hidden');
-if (soundToggle) soundToggle.style.display = 'flex';
-updateSoundIcon(false);
-}).catch(function() {
-video.muted = true;
-video.play().then(function() {
-if (playOverlay) playOverlay.classList.add('hidden');
-if (soundToggle) soundToggle.style.display = 'flex';
-updateSoundIcon(true);
-});
-});
-}
-}
+
 function updateSoundIcon(isMuted) {
 if (isMuted) {
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2675,6 +2600,7 @@ soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><lin
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
 }
 }
+
 function createFallingBox() {
 const box = document.createElement('div');
 box.className = 'falling-box';
@@ -2692,33 +2618,53 @@ setTimeout(function() {
 if (box.parentNode) box.parentNode.removeChild(box);
 }, (duration + delay) * 1000 + 500);
 }
+
 function startFallingBoxes() {
 for (let i = 0; i < 8; i++) {
 setTimeout(createFallingBox, i * 150);
 }
 boxesInterval = setInterval(createFallingBox, 400);
 }
+
 function stopFallingBoxes() {
 if (boxesInterval) { clearInterval(boxesInterval); boxesInterval = null; }
 while (fallingBoxesContainer.firstChild) {
 fallingBoxesContainer.removeChild(fallingBoxesContainer.firstChild);
 }
 }
+
 if (video) {
 video.addEventListener('ended', function() {
 if (autoCloseTimer) clearTimeout(autoCloseTimer);
 autoCloseTimer = setTimeout(closePopup, 2000);
 });
 }
-if (playButton) playButton.addEventListener('click', function(e) { e.stopPropagation(); playVideo(); });
-if (playOverlay) playOverlay.addEventListener('click', playVideo);
+
 if (soundToggle) {
 soundToggle.addEventListener('click', function() {
 if (!video) return;
 video.muted = !video.muted;
 updateSoundIcon(video.muted);
+if (!video.muted) popupAudioUnlocked = true;
 });
 }
+
+// Unlock audio on first user interaction anywhere on the page
+function unlockPopupAudio() {
+popupAudioUnlocked = true;
+// If popup is currently open and video is muted, unmute it
+if (popup.classList.contains('active') && video && video.muted) {
+video.muted = false;
+updateSoundIcon(false);
+}
+document.removeEventListener('click', unlockPopupAudio);
+document.removeEventListener('touchstart', unlockPopupAudio);
+document.removeEventListener('keydown', unlockPopupAudio);
+}
+document.addEventListener('click', unlockPopupAudio);
+document.addEventListener('touchstart', unlockPopupAudio);
+document.addEventListener('keydown', unlockPopupAudio);
+
 closeBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
 skipBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
 ctaBtn.addEventListener('click', closePopup);
@@ -2726,17 +2672,21 @@ popup.addEventListener('click', function(e) { if (e.target === popup) closePopup
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
 });
+
 if (aboutUsLink) aboutUsLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
 if (footerAboutLink) footerAboutLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
+
 setTimeout(function() {
 if (!hasBeenShown) { hasBeenShown = true; openPopup(); }
 }, 600);
+
 // ============ CINEMATIC VIDEO ============
 const cinematicVideo = document.getElementById('cinematicVideo');
 const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
 const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
 let userInteracted = false;
 let cinematicSectionVisible = false;
+
 function unlockAudio() {
 userInteracted = true;
 document.removeEventListener('click', unlockAudio);
@@ -2746,6 +2696,7 @@ document.removeEventListener('keydown', unlockAudio);
 document.addEventListener('click', unlockAudio);
 document.addEventListener('touchstart', unlockAudio);
 document.addEventListener('keydown', unlockAudio);
+
 function setCinematicSoundIcon(isMuted) {
 if (isMuted) {
 cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2755,6 +2706,7 @@ cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11
 if (cinematicSoundToggle) cinematicSoundToggle.classList.remove('muted');
 }
 }
+
 if (cinematicVideo) {
 cinematicVideo.muted = true;
 cinematicVideo.loop = true;
@@ -2795,6 +2747,7 @@ setCinematicSoundIcon(false);
 }
 }, { once: true });
 }
+
 // ============ CONTACT FORM → WHATSAPP ============
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -2813,6 +2766,7 @@ window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 contactForm.reset();
 });
 }
+
 // ============ FAQ MODAL — Collection Order (2 Options) ============
 const faqOverlay = document.getElementById('faqOverlay');
 const faqClose = document.getElementById('faqClose');
@@ -2821,6 +2775,7 @@ const faqFullSet = document.getElementById('faqFullSet');
 const faqSeparate = document.getElementById('faqSeparate');
 const orderButtons = document.querySelectorAll('.collection-order-trigger');
 let currentCollection = '';
+
 function openFaq(collectionName) {
 currentCollection = collectionName || '';
 if (collectionName) {
@@ -2835,14 +2790,17 @@ document.getElementById('faqSeparateTitle').textContent = 'I want to buy separat
 }
 faqOverlay.classList.add('active');
 }
+
 function closeFaq() {
 faqOverlay.classList.remove('active');
 }
+
 function sendWhatsApp(message) {
 const text = encodeURIComponent(message);
 window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 closeFaq();
 }
+
 orderButtons.forEach(function(btn) {
 btn.addEventListener('click', function(e) {
 e.preventDefault();
@@ -2850,6 +2808,7 @@ const collection = btn.getAttribute('data-collection');
 openFaq(collection);
 });
 });
+
 if (faqClose) faqClose.addEventListener('click', function(e) { e.preventDefault(); closeFaq(); });
 if (faqOverlay) {
 faqOverlay.addEventListener('click', function(e) {
@@ -2859,21 +2818,20 @@ if (e.target === faqOverlay) closeFaq();
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && faqOverlay.classList.contains('active')) closeFaq();
 });
-// Full set option → Armenian message
+
 if (faqFullSet) {
 faqFullSet.addEventListener('click', function(e) {
 e.preventDefault();
 const collectionName = currentCollection || 'HUR';
-const msg = 'ղջույն ես ցանկանում եմ գնել ' + collectionName + ' սեթը, Շնորհակալություն 🤍';
+const msg = 'Ողջույն ես ցանկանում եմ գնել ' + collectionName + ' սեթը, Շնորհակալություն 🤍';
 sendWhatsApp(msg);
 });
 }
-// Separate option → Armenian message
 if (faqSeparate) {
 faqSeparate.addEventListener('click', function(e) {
 e.preventDefault();
 const collectionName = currentCollection || 'HUR';
-const msg = 'Ողջույն ես ցանկանում եմ գնել ' + collectionName + ' առանձին արդեր, Շնորհակալություն 🤍';
+const msg = 'Ողջույն ես ցանկանում եմ գնել ' + collectionName + ' առանձին զարդեր, Շնորհակալություն 🤍';
 sendWhatsApp(msg);
 });
 }
