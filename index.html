@@ -70,17 +70,9 @@
             opacity: 0;
         }
         @keyframes fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            70% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
         }
 
         /* ============================================
@@ -100,10 +92,7 @@
             visibility: hidden;
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .popup-overlay.active { opacity: 1; visibility: visible; }
         .popup-content {
             position: relative;
             max-width: 460px;
@@ -115,9 +104,7 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(184, 147, 90, 0.25);
         }
-        .popup-overlay.active .popup-content {
-            transform: scale(1) translateY(0);
-        }
+        .popup-overlay.active .popup-content { transform: scale(1) translateY(0); }
 
         .popup-close {
             position: absolute;
@@ -213,10 +200,7 @@
             z-index: 5;
             transition: opacity 0.4s ease;
         }
-        .play-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        .play-overlay.hidden { opacity: 0; pointer-events: none; }
         .play-overlay:hover .play-button {
             transform: scale(1.1);
             background: var(--gold);
@@ -247,12 +231,7 @@
             0% { transform: scale(1); opacity: 1; }
             100% { transform: scale(1.4); opacity: 0; }
         }
-        .play-button svg {
-            width: 26px;
-            height: 26px;
-            fill: var(--white);
-            margin-left: 4px;
-        }
+        .play-button svg { width: 26px; height: 26px; fill: var(--white); margin-left: 4px; }
         .play-text {
             font-size: 0.7rem;
             letter-spacing: 3px;
@@ -278,18 +257,8 @@
             color: var(--white);
             backdrop-filter: blur(10px);
         }
-        .sound-toggle:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark);
-        }
-        .sound-toggle svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }
+        .sound-toggle:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+        .sound-toggle svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
 
         .popup-body {
             padding: 1.5rem 1.5rem 1.75rem;
@@ -344,9 +313,7 @@
             box-shadow: 0 14px 40px rgba(184, 147, 90, 0.5);
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
-        .popup-cta:hover::before {
-            left: 100%;
-        }
+        .popup-cta:hover::before { left: 100%; }
         .popup-cta svg {
             width: 14px;
             height: 14px;
@@ -355,9 +322,7 @@
             stroke-width: 2.5;
             transition: transform 0.3s ease;
         }
-        .popup-cta:hover svg {
-            transform: translateX(4px);
-        }
+        .popup-cta:hover svg { transform: translateX(4px); }
 
         .popup-skip {
             display: block;
@@ -368,12 +333,10 @@
             transition: var(--transition);
             letter-spacing: 1px;
         }
-        .popup-skip:hover {
-            color: var(--gold-light);
-        }
+        .popup-skip:hover { color: var(--gold-light); }
 
         /* ============================================
-           FAQ MODAL (Mobile bottom nav)
+           FAQ MODAL (Premium, Dynamic)
            ============================================ */
         .faq-overlay {
             position: fixed;
@@ -389,10 +352,7 @@
             visibility: hidden;
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        .faq-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .faq-overlay.active { opacity: 1; visibility: visible; }
         .faq-content {
             position: relative;
             width: 100%;
@@ -405,9 +365,7 @@
             max-height: 85vh;
             overflow-y: auto;
         }
-        .faq-overlay.active .faq-content {
-            transform: translateY(0);
-        }
+        .faq-overlay.active .faq-content { transform: translateY(0); }
         .faq-handle {
             width: 40px;
             height: 4px;
@@ -415,10 +373,7 @@
             border-radius: 2px;
             margin: 0 auto 1.5rem;
         }
-        .faq-header {
-            text-align: center;
-            margin-bottom: 1.75rem;
-        }
+        .faq-header { text-align: center; margin-bottom: 1.75rem; }
         .faq-header .faq-tag {
             display: inline-block;
             font-size: 0.65rem;
@@ -428,18 +383,27 @@
             margin-bottom: 0.75rem;
             font-weight: 600;
         }
+        .faq-header .faq-collection-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: var(--dark);
+            color: var(--gold-light);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+        }
         .faq-header h3 {
             font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-size: 1.6rem;
             font-weight: 500;
             color: var(--dark);
             line-height: 1.2;
             margin-bottom: 0.5rem;
         }
-        .faq-header h3 em {
-            font-style: italic;
-            color: var(--gold);
-        }
+        .faq-header h3 em { font-style: italic; color: var(--gold); }
         .faq-header p {
             font-size: 0.85rem;
             color: var(--text-light);
@@ -456,12 +420,27 @@
             border: 1px solid transparent;
             text-decoration: none;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .faq-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gold);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
         }
         .faq-item:hover {
             border-color: var(--gold);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(184, 147, 90, 0.15);
         }
+        .faq-item:hover::before { transform: scaleY(1); }
         .faq-item-header {
             display: flex;
             align-items: flex-start;
@@ -469,8 +448,8 @@
             margin-bottom: 0.5rem;
         }
         .faq-item-icon {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: var(--dark);
             display: flex;
@@ -478,14 +457,10 @@
             justify-content: center;
             flex-shrink: 0;
         }
-        .faq-item-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--gold-light);
-        }
+        .faq-item-icon svg { width: 16px; height: 16px; stroke: var(--gold-light); }
         .faq-item-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--dark);
             line-height: 1.3;
@@ -495,7 +470,7 @@
             font-size: 0.82rem;
             color: var(--text-light);
             line-height: 1.5;
-            padding-left: 3rem;
+            padding-left: 3.25rem;
             font-weight: 300;
         }
         .faq-item-cta {
@@ -503,11 +478,11 @@
             align-items: center;
             gap: 0.4rem;
             margin-top: 0.6rem;
-            margin-left: 3rem;
-            font-size: 0.72rem;
+            margin-left: 3.25rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--gold);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
         .faq-item-cta svg {
@@ -516,9 +491,7 @@
             stroke: currentColor;
             transition: transform 0.3s ease;
         }
-        .faq-item:hover .faq-item-cta svg {
-            transform: translateX(4px);
-        }
+        .faq-item:hover .faq-item-cta svg { transform: translateX(4px); }
 
         .faq-close {
             position: absolute;
@@ -536,11 +509,9 @@
             color: var(--dark);
             font-size: 1rem;
             transition: var(--transition);
+            z-index: 5;
         }
-        .faq-close:hover {
-            background: var(--dark);
-            color: var(--white);
-        }
+        .faq-close:hover { background: var(--dark); color: var(--white); }
 
         /* ============================================
            MOBILE BOTTOM NAV BUTTON
@@ -582,13 +553,7 @@
             transform: scale(1.08);
             box-shadow: 0 12px 32px rgba(184, 147, 90, 0.5), 0 0 0 4px rgba(255,255,255,0.95);
         }
-        .mobile-nav-btn svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--dark);
-            fill: none;
-            stroke-width: 2;
-        }
+        .mobile-nav-btn svg { width: 28px; height: 28px; stroke: var(--dark); fill: none; stroke-width: 2; }
         .mobile-nav-label {
             font-size: 0.65rem;
             font-weight: 600;
@@ -608,20 +573,99 @@
                 left: auto;
                 transform: none;
             }
-            .mobile-nav-btn {
-                width: 56px;
-                height: 56px;
-            }
-            .mobile-nav-btn svg {
-                width: 24px;
-                height: 24px;
-            }
-            .mobile-nav-label {
-                display: none;
-            }
-            body {
-                padding-bottom: 0;
-            }
+            .mobile-nav-btn { width: 56px; height: 56px; }
+            .mobile-nav-btn svg { width: 24px; height: 24px; }
+            .mobile-nav-label { display: none; }
+            body { padding-bottom: 0; }
+        }
+
+        /* ============================================
+           COLLECTION "+" ORDER BUTTON
+           ============================================ */
+        .collection-order-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .collection-order-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            stroke-width: 2.5;
+            transition: transform 0.3s ease;
+        }
+        .collection-order-btn:hover {
+            background: var(--gold);
+            transform: scale(1.1) rotate(90deg);
+        }
+        .collection-order-btn:hover svg { stroke: var(--white); }
+        .collection-order-btn .btn-tooltip {
+            position: absolute;
+            right: calc(100% + 0.75rem);
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--dark);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .collection-order-btn .btn-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid var(--dark);
+        }
+        .collection-order-btn:hover .btn-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-4px);
+        }
+
+        .collection-block.dark .collection-order-btn {
+            background: var(--dark);
+            border-color: var(--gold-light);
+        }
+        .collection-block.dark .collection-order-btn svg { stroke: var(--gold-light); }
+        .collection-block.dark .collection-order-btn:hover {
+            background: var(--gold-light);
+        }
+        .collection-block.dark .collection-order-btn:hover svg { stroke: var(--dark); }
+        .collection-block.dark .collection-order-btn .btn-tooltip {
+            background: var(--gold-light);
+            color: var(--dark);
+        }
+        .collection-block.dark .collection-order-btn .btn-tooltip::after {
+            border-left-color: var(--gold-light);
+        }
+
+        .collection-block.warm .collection-order-btn,
+        .collection-block.cream .collection-order-btn {
+            background: var(--white);
         }
 
         /* ============================================
@@ -652,12 +696,7 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        .marquee-content {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            padding-right: 2rem;
-        }
+        .marquee-content { display: flex; align-items: center; gap: 0; padding-right: 2rem; }
         .marquee-item {
             display: inline-flex;
             align-items: center;
@@ -747,16 +786,25 @@
             height: 18px;
             stroke: #999;
         }
-        .top-icons { display: flex; align-items: center; gap: 1.25rem; }
+        .top-icons { display: flex; align-items: center; gap: 1rem; }
         .top-icons a {
             text-decoration: none;
             color: var(--text);
             transition: var(--transition);
             display: flex;
             align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid transparent;
         }
-        .top-icons a:hover { color: var(--gold); }
-        .top-icons svg { width: 22px; height: 22px; stroke: currentColor; }
+        .top-icons a:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(184, 147, 90, 0.05);
+        }
+        .top-icons svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
         /* ============================================
            NAVIGATION BAR
@@ -927,9 +975,7 @@
             stroke: currentColor;
             transition: transform 0.3s ease;
         }
-        .hero-banner-cta:hover svg {
-            transform: translateX(4px);
-        }
+        .hero-banner-cta:hover svg { transform: translateX(4px); }
 
         /* ============================================
            COLLECTIONS INTRO + MINI PREVIEW CARDS
@@ -1037,10 +1083,7 @@
             transform: translate(-5px, 5px);
             transition: var(--transition);
         }
-        .preview-card:hover .preview-card-arrow {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
+        .preview-card:hover .preview-card-arrow { opacity: 1; transform: translate(0, 0); }
         .preview-card-arrow svg { width: 14px; height: 14px; stroke: var(--white); }
 
         /* ============================================
@@ -1215,10 +1258,7 @@
             transition: opacity 0.4s ease, visibility 0.4s ease;
             padding: 2rem;
         }
-        .lightbox:target {
-            opacity: 1;
-            visibility: visible;
-        }
+        .lightbox:target { opacity: 1; visibility: visible; }
         .lightbox-content {
             position: relative;
             max-width: 90vw;
@@ -1251,11 +1291,7 @@
             font-size: 1.25rem;
             transition: var(--transition);
         }
-        .lightbox-close:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark);
-        }
+        .lightbox-close:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -1272,11 +1308,7 @@
             color: var(--white);
             transition: var(--transition);
         }
-        .lightbox-nav:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark);
-        }
+        .lightbox-nav:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
         .lightbox-nav svg { width: 18px; height: 18px; stroke: currentColor; }
         .lightbox-prev { left: -4rem; }
         .lightbox-next { right: -4rem; }
@@ -1352,10 +1384,7 @@
             letter-spacing: -1px;
             margin-bottom: 1.5rem;
         }
-        .cinematic-video-content h2 em {
-            font-style: italic;
-            color: var(--gold-light);
-        }
+        .cinematic-video-content h2 em { font-style: italic; color: var(--gold-light); }
         .cinematic-video-content p {
             font-size: 1rem;
             color: rgba(255,255,255,0.75);
@@ -1382,21 +1411,9 @@
             backdrop-filter: blur(10px);
             transition: var(--transition);
         }
-        .cinematic-sound-toggle:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark);
-        }
-        .cinematic-sound-toggle svg {
-            width: 22px;
-            height: 22px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }
-        .cinematic-sound-toggle.muted {
-            opacity: 0.7;
-        }
+        .cinematic-sound-toggle:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+        .cinematic-sound-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .cinematic-sound-toggle.muted { opacity: 0.7; }
 
         /* ============================================
            REVIEWS SECTION
@@ -1432,16 +1449,8 @@
             pointer-events: none;
             z-index: 0;
         }
-        .reviews-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        .reviews-inner { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; }
+        .reviews-header { text-align: center; margin-bottom: 4rem; }
         .reviews-header .section-label {
             font-size: 0.7rem;
             letter-spacing: 4px;
@@ -1459,10 +1468,7 @@
             letter-spacing: -0.5px;
             line-height: 1.15;
         }
-        .reviews-header h2 em {
-            font-style: italic;
-            color: var(--gold-light);
-        }
+        .reviews-header h2 em { font-style: italic; color: var(--gold-light); }
         .reviews-header .divider {
             width: 60px;
             height: 1px;
@@ -1485,10 +1491,7 @@
             transition: var(--transition);
             background: var(--dark);
         }
-        .review-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
+        .review-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
         .review-card img {
             position: absolute;
             inset: 0;
@@ -1498,9 +1501,7 @@
             object-position: center;
             transition: transform 0.8s ease;
         }
-        .review-card:hover img {
-            transform: scale(1.08);
-        }
+        .review-card:hover img { transform: scale(1.08); }
         .review-card::before {
             content: '';
             position: absolute;
@@ -1536,11 +1537,7 @@
             opacity: 0.6;
             transition: var(--transition);
         }
-        .review-card:hover::after {
-            opacity: 1;
-            width: 32px;
-            height: 32px;
-        }
+        .review-card:hover::after { opacity: 1; width: 32px; height: 32px; }
         .review-card-content {
             position: absolute;
             bottom: 0;
@@ -1550,11 +1547,7 @@
             z-index: 2;
             color: var(--white);
         }
-        .review-stars {
-            display: flex;
-            gap: 0.15rem;
-            margin-bottom: 0.75rem;
-        }
+        .review-stars { display: flex; gap: 0.15rem; margin-bottom: 0.75rem; }
         .review-stars svg {
             width: 14px;
             height: 14px;
@@ -1574,10 +1567,7 @@
             transform: translateY(10px);
             transition: all 0.4s ease 0.1s;
         }
-        .review-card:hover .review-quote {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .review-card:hover .review-quote { opacity: 1; transform: translateY(0); }
         .review-author {
             display: flex;
             align-items: center;
@@ -1600,18 +1590,8 @@
             flex-shrink: 0;
         }
         .review-author-info { flex: 1; min-width: 0; }
-        .review-author-name {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--white);
-            letter-spacing: 0.3px;
-        }
-        .review-author-location {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.5);
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
+        .review-author-name { font-size: 0.85rem; font-weight: 500; color: var(--white); letter-spacing: 0.3px; }
+        .review-author-location { font-size: 0.7rem; color: rgba(255,255,255,0.5); font-weight: 300; letter-spacing: 0.5px; }
         .review-collection-tag {
             position: absolute;
             top: 1rem;
@@ -1640,9 +1620,7 @@
             animation: reviewMarquee 40s linear infinite;
             gap: 3rem;
         }
-        .reviews-marquee:hover .reviews-marquee-track {
-            animation-play-state: paused;
-        }
+        .reviews-marquee:hover .reviews-marquee-track { animation-play-state: paused; }
         @keyframes reviewMarquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -1748,11 +1726,7 @@
             align-items: center;
             gap: 0.6rem;
         }
-        .submit-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
+        .submit-btn svg { width: 16px; height: 16px; fill: currentColor; }
         .submit-btn:hover { background: #25D366; border-color: #25D366; }
 
         /* ============================================
@@ -1860,21 +1834,13 @@
             .cinematic-video-content { bottom: 5rem; left: 5%; right: 5%; max-width: 90%; }
             .cinematic-video-content h2 { font-size: clamp(2rem, 8vw, 3rem); }
             .cinematic-sound-toggle { bottom: 5rem; right: 5%; }
-            .popup-close {
-                top: 0.75rem;
-                right: 0.75rem;
-                width: 38px;
-                height: 38px;
-            }
-            .video-overlay-text {
-                padding: 2rem 1rem 1rem;
-            }
-            .video-overlay-text .popup-title {
-                font-size: 1.4rem;
-            }
-            .faq-content {
-                padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom, 0));
-            }
+            .popup-close { top: 0.75rem; right: 0.75rem; width: 38px; height: 38px; }
+            .video-overlay-text { padding: 2rem 1rem 1rem; }
+            .video-overlay-text .popup-title { font-size: 1.4rem; }
+            .faq-content { padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom, 0)); }
+            .collection-order-btn { width: 40px; height: 40px; }
+            .collection-order-btn svg { width: 18px; height: 18px; }
+            .collection-order-btn .btn-tooltip { display: none; }
         }
         @media (max-width: 480px) {
             .collections-preview { grid-template-columns: 1fr; }
@@ -1887,16 +1853,13 @@
             .popup-overlay { padding: 1rem; }
             .play-button { width: 64px; height: 64px; }
             .popup-content { max-width: 95%; }
-            .falling-box {
-                width: 45px;
-                height: 55px;
-            }
+            .falling-box { width: 45px; height: 55px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Falling boxes container (for About Us popup rain effect) -->
+    <!-- Falling boxes container -->
     <div class="falling-boxes-container" id="fallingBoxesContainer"></div>
 
     <!-- ============================================
@@ -1945,30 +1908,31 @@
     </div>
 
     <!-- ============================================
-         FAQ MODAL (Mobile bottom nav)
+         FAQ MODAL (Dynamic — supports collection context)
          ============================================ -->
     <div class="faq-overlay" id="faqOverlay">
         <div class="faq-content">
             <button class="faq-close" id="faqClose" aria-label="Close">✕</button>
             <div class="faq-handle"></div>
             <div class="faq-header">
-                <span class="faq-tag">How can we help?</span>
-                <h3>Choose your <em>path</em></h3>
-                <p>Tap below to connect directly with HUR</p>
+                <span class="faq-tag">How would you like to order?</span>
+                <div class="faq-collection-badge" id="faqCollectionBadge" style="display:none;"></div>
+                <h3 id="faqTitle">Choose your <em>path</em></h3>
+                <p id="faqSubtitle">Tap below to connect directly with HUR</p>
             </div>
 
-            <a href="#" class="faq-item" id="faqOwner">
+            <a href="#" class="faq-item" id="faqFullSet">
                 <div class="faq-item-header">
                     <div class="faq-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                         </svg>
                     </div>
-                    <div class="faq-item-title">Select which set you wanna buy and we will organize your order</div>
+                    <div class="faq-item-title" id="faqFullSetTitle">I want the full set — organize my order</div>
                 </div>
-                <div class="faq-item-desc">Chat directly with Mest, the brand owner & ambassador. Get personalized recommendations and a curated order.</div>
+                <div class="faq-item-desc" id="faqFullSetDesc">Chat directly with Mest, the brand owner & ambassador. Get a curated full-set order with our signature packaging.</div>
                 <div class="faq-item-cta">
-                    Chat with Mest
+                    <span id="faqFullSetCta">Chat with Mest</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>
@@ -1976,7 +1940,7 @@
                 </div>
             </a>
 
-            <a href="#" class="faq-item" id="faqSales">
+            <a href="#" class="faq-item" id="faqCustomSet">
                 <div class="faq-item-header">
                     <div class="faq-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1985,11 +1949,11 @@
                             <path d="M16 10a4 4 0 0 1-8 0"/>
                         </svg>
                     </div>
-                    <div class="faq-item-title">Just connect me with sales manager — I need to make an order with the most iconic packaging</div>
+                    <div class="faq-item-title" id="faqCustomSetTitle">I want to choose specific pieces</div>
                 </div>
-                <div class="faq-item-desc">Speak with our sales manager about full sets, individual pieces, and our signature HUR packaging experience.</div>
+                <div class="faq-item-desc" id="faqCustomSetDesc">Speak with our sales manager about individual pieces — just a ring, earrings, or a custom combination with iconic packaging.</div>
                 <div class="faq-item-cta">
-                    Chat with Sales
+                    <span id="faqCustomSetCta">Chat with Sales</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>
@@ -2003,7 +1967,7 @@
          MOBILE BOTTOM NAV BUTTON
          ============================================ -->
     <div class="mobile-bottom-nav">
-        <button class="mobile-nav-btn" id="mobileNavBtn" aria-label="Help & Order">
+        <button class="mobile-nav-btn" id="mobileNavBtn" aria-label="Support Chat">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
@@ -2083,17 +2047,9 @@
         </div>
 
         <div class="top-icons">
-            <a href="#" aria-label="Account">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                </svg>
-            </a>
-            <a href="#" aria-label="Cart">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"/>
-                    <circle cx="20" cy="21" r="1"/>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            <a href="#" id="topChatBtn" aria-label="Support Chat" title="Chat with us">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                 </svg>
             </a>
         </div>
@@ -2126,7 +2082,7 @@
         <div class="hero-banner-content">
             <span class="section-label">The HUR Experience</span>
             <h1>Unbox the <em>Extraordinary</em></h1>
-            <p>Every HUR piece arrives in our signature packaging — a ritual of elegance, crafted to honor the art within.</p>
+            <p>Every HUR piece arrives in our signature and aesthetic packaging — a silent poem of elegance, crafted to honor the art within.</p>
             <a href="#collections" class="hero-banner-cta">
                 Explore Collections
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2156,7 +2112,7 @@
                 <div class="preview-card-content">
                     <div class="preview-card-tag">Collection I</div>
                     <div class="preview-card-title">AREVA</div>
-                    <div class="preview-card-sub">ԱՐԵՎԱ · Sun Symbol</div>
+                    <div class="preview-card-sub">ԱՐԵԱ · Sun Symbol</div>
                 </div>
             </a>
 
@@ -2208,17 +2164,24 @@
     </section>
 
     <!-- ============================================
-         COLLECTION 1 — AREVA
+         COLLECTION 1 — AREVA (with + order button)
          ============================================ -->
     <section class="collection-block light" id="areva">
         <div class="collection-hero">
             <div class="collection-hero-image">
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.33.54.jpg?v=1792575373" alt="AREVA Collection by HUR">
+                <button class="collection-order-btn" data-collection="AREVA" aria-label="Order AREVA set">
+                    <span class="btn-tooltip">Order this set</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection I</span>
                 <h2 class="collection-title">AREVA<br>ԱՐԵՎԱ</h2>
-                <p class="collection-subtitle">by HUR ⛓🤍</p>
+                <p class="collection-subtitle">by HUR ⛓</p>
                 <p class="collection-desc">A symbol of the sun, rooted in Armenian stone. Reimagined in silver.</p>
                 <p class="collection-desc">Ancient form. Modern silver. ♾️</p>
             </div>
@@ -2247,12 +2210,19 @@
         <div class="collection-hero reverse">
             <div class="collection-hero-image">
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.54.54.jpg?v=1792576557" alt="RUNE Collection by HUR">
+                <button class="collection-order-btn" data-collection="RUNE" aria-label="Order RUNE set">
+                    <span class="btn-tooltip">Order this set</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection II</span>
                 <h2 class="collection-title">RUNE</h2>
-                <p class="collection-subtitle">by HUR </p>
-                <p class="collection-desc">Not everything beautiful is meant to be soft. </p>
+                <p class="collection-subtitle">by HUR ⛓</p>
+                <p class="collection-desc">Not everything beautiful is meant to be soft. 🤍</p>
                 <p class="collection-desc">RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.</p>
                 <p class="collection-desc">A reminder that strength doesn't always need to be loud.</p>
                 <p class="collection-desc" style="margin-top: 1.5rem; font-style: italic;">Wear your mark.</p>
@@ -2279,14 +2249,21 @@
         <div class="collection-hero">
             <div class="collection-hero-image">
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.42.jpg?v=1792577243" alt="HALO Collection by HUR">
+                <button class="collection-order-btn" data-collection="HALO" aria-label="Order HALO set">
+                    <span class="btn-tooltip">Order this set</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection III</span>
                 <h2 class="collection-title">HALO</h2>
-                <p class="collection-subtitle">by HUR 🤍⛓</p>
-                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
+                <p class="collection-subtitle">by HUR 🤍</p>
+                <p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարակ ընտրությունն է։</p>
                 <p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
-                <p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և ուռ ուժի մասին։</p>
+                <p class="collection-desc-armenian">Յուրաքանչյուր րջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
                 <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
                 <p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ սկական լույսը միշտ գալիս է ներսից։</p>
             </div>
@@ -2312,6 +2289,13 @@
         <div class="collection-hero reverse">
             <div class="collection-hero-image">
                 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.00.jpg?v=1792577437" alt="GLOW Collection by HUR">
+                <button class="collection-order-btn" data-collection="GLOW" aria-label="Order GLOW set">
+                    <span class="btn-tooltip">Order this set</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
             </div>
             <div class="collection-hero-text">
                 <span class="collection-tag">Collection IV</span>
@@ -2417,703 +2401,4 @@
         <a href="#halo" class="lightbox-close">✕</a>
         <a href="#lb-h1" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
         <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.55.jpg?v=1792577242" alt="HALO piece">
-        <a href="#lb-h3" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    </div></div>
-    <div id="lb-h3" class="lightbox"><div class="lightbox-content">
-        <a href="#halo" class="lightbox-close">✕</a>
-        <a href="#lb-h2" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
-        <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.05.06.jpg?v=1792577243" alt="HALO piece">
-        <a href="#lb-h4" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    </div></div>
-    <div id="lb-h4" class="lightbox"><div class="lightbox-content">
-        <a href="#halo" class="lightbox-close">✕</a>
-        <a href="#lb-h3" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
-        <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.05.15.jpg?v=1792577243" alt="HALO piece">
-        <a href="#lb-h1" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    </div></div>
-
-    <div id="lb-g1" class="lightbox"><div class="lightbox-content">
-        <a href="#glow" class="lightbox-close">✕</a>
-        <a href="#lb-g2" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
-        <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.05.jpg?v=1792577437" alt="GLOW piece">
-        <a href="#lb-g2" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    </div></div>
-    <div id="lb-g2" class="lightbox"><div class="lightbox-content">
-        <a href="#glow" class="lightbox-close">✕</a>
-        <a href="#lb-g1" class="lightbox-nav lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></a>
-        <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.09.jpg?v=1792577437" alt="GLOW piece">
-        <a href="#lb-g1" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    </div></div>
-
-    <!-- ============================================
-         FULL-SCREEN CINEMATIC VIDEO
-         ============================================ -->
-    <section class="cinematic-video" id="about">
-        <video muted loop playsinline preload="auto" id="cinematicVideo">
-            <source src="https://cdn.shopify.com/videos/c/o/v/8470f88b86424be69269f5a8c380a833.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="cinematic-video-content">
-            <span class="section-label">The HUR Story</span>
-            <h2>Crafted with <em>Purpose</em><br>& Passion</h2>
-            <p>Each piece is a story — rooted in Armenian heritage, shaped by modern hands, and designed to become part of yours.</p>
-        </div>
-        <button class="cinematic-sound-toggle muted" id="cinematicSoundToggle" aria-label="Toggle sound">
-            <svg id="cinematicSoundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <line x1="23" y1="9" x2="17" y2="15"/>
-                <line x1="17" y1="9" x2="23" y2="15"/>
-            </svg>
-        </button>
-    </section>
-
-    <!-- ============================================
-         REVIEWS SECTION
-         ============================================ -->
-    <section class="reviews" id="reviews">
-        <div class="reviews-inner">
-            <div class="reviews-header">
-                <span class="section-label">Client Voices</span>
-                <h2>Honest reviews and impressions<br>from our <em>clients</em></h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <span class="review-collection-tag">AREVA</span>
-                    <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_7815.jpg?v=1792663265" alt="Customer wearing HUR AREVA">
-                    <div class="review-card-content">
-                        <div class="review-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="review-quote">"The AREVA ring feels like it was made for me. Ancient soul, modern hand."</p>
-                        <div class="review-author">
-                            <div class="review-author-avatar">A</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Anahit M.</div>
-                                <div class="review-author-location">Yerevan, Armenia</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <span class="review-collection-tag">RUNE</span>
-                    <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_7816.jpg?v=1792663265" alt="Customer wearing HUR RUNE">
-                    <div class="review-card-content">
-                        <div class="review-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="review-quote">"Raw, bold, unapologetic. RUNE is not jewelry — it's armor."</p>
-                        <div class="review-author">
-                            <div class="review-author-avatar">L</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Lilit K.</div>
-                                <div class="review-author-location">Istanbul, Turkey</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <span class="review-collection-tag">HALO</span>
-                    <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_7817.jpg?v=1792663265" alt="Customer wearing HUR HALO">
-                    <div class="review-card-content">
-                        <div class="review-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="review-quote">"Pure light in silver form. HALO reminds me that beauty is quiet."</p>
-                        <div class="review-author">
-                            <div class="review-author-avatar">S</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Sona G.</div>
-                                <div class="review-author-location">Paris, France</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <span class="review-collection-tag">GLOW</span>
-                    <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_7818.jpg?v=1792663265" alt="Customer wearing HUR GLOW">
-                    <div class="review-card-content">
-                        <div class="review-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="review-quote">"The GLOW cuff is my everyday ritual. Warm stone, cool silver — perfect balance."</p>
-                        <div class="review-author">
-                            <div class="review-author-avatar">M</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Mari T.</div>
-                                <div class="review-author-location">Dubai, UAE</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="reviews-marquee">
-                <div class="reviews-marquee-track">
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">Every piece feels like it was made just for me</span>
-                        <span class="quote-author">— Loyal Customer</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">The quality is unmatched</span>
-                        <span class="quote-author">— Anahit M.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">Strength doesn't need to be loud</span>
-                        <span class="quote-author">— Lilit K.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">True light comes from within</span>
-                        <span class="quote-author">— Sona G.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">A new expression of elegance</span>
-                        <span class="quote-author">— Mari T.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">Every piece feels like it was made just for me</span>
-                        <span class="quote-author">— Loyal Customer</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">The quality is unmatched</span>
-                        <span class="quote-author">— Anahit M.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">Strength doesn't need to be loud</span>
-                        <span class="quote-author">— Lilit K.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">True light comes from within</span>
-                        <span class="quote-author">— Sona G.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                    <div class="review-highlight">
-                        <span class="quote-mark">"</span>
-                        <span class="quote-text">A new expression of elegance</span>
-                        <span class="quote-author">— Mari T.</span>
-                    </div>
-                    <div class="review-highlight-divider"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         CONTACT SECTION
-         ============================================ -->
-    <section class="contact" id="contact">
-        <div class="contact-info">
-            <h2>Let's Connect</h2>
-            <p>Have questions about our pieces or want to collaborate? We'd love to hear from you.</p>
-            <ul class="contact-details">
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                    <a href="mailto:hello@hur.com">hello@hur.com</a>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    <span>Yerevan, Armenia</span>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                    </svg>
-                    <a href="https://www.instagram.com/hur__official/" target="_blank">@hur__official</a>
-                </li>
-            </ul>
-        </div>
-        <form class="contact-form" id="contactForm">
-            <div class="form-group"><input type="text" id="contactName" placeholder="Your Name" required></div>
-            <div class="form-group"><input type="email" id="contactEmail" placeholder="Your Email" required></div>
-            <div class="form-group"><input type="text" id="contactSubject" placeholder="Subject"></div>
-            <div class="form-group"><textarea id="contactMessage" placeholder="Your Message" required></textarea></div>
-            <button type="submit" class="submit-btn">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                Send via WhatsApp
-            </button>
-        </form>
-    </section>
-
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <svg class="logo-svg-footer" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#f7971e"/>
-                            <stop offset="25%" style="stop-color:#ff6b9d"/>
-                            <stop offset="50%" style="stop-color:#e1306c"/>
-                            <stop offset="75%" style="stop-color:#c471ed"/>
-                            <stop offset="100%" style="stop-color:#833ab4"/>
-                        </linearGradient>
-                    </defs>
-                    <circle cx="50" cy="50" r="46" fill="#1a1a1a"/>
-                    <circle cx="50" cy="50" r="42" fill="url(#logoGradFooter)"/>
-                    <circle cx="50" cy="50" r="39" fill="#ffffff"/>
-                    <text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#1a1a1a" letter-spacing="1">HUR</text>
-                </svg>
-                <p>Handcrafted silver accessories designed for the modern individual. Timeless elegance, ethically made.</p>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/hur__official/" target="_blank" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Pinterest">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4"/>
-                            <path d="M12 16v4"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4>Collections</h4>
-                <ul>
-                    <li><a href="#areva">AREVA</a></li>
-                    <li><a href="#rune">RUNE</a></li>
-                    <li><a href="#halo">HALO</a></li>
-                    <li><a href="#glow">GLOW</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#" id="footerAboutLink">About Us</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Care Guide</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 HUR Official. All rights reserved. Crafted with love in Yerevan.</p>
-        </div>
-    </footer>
-
-    <!-- ============================================
-         SCRIPTS
-         ============================================ -->
-    <script>
-        (function() {
-            // ============ WHATSAPP NUMBER ============
-            const WHATSAPP_NUMBER = '37455977911';
-
-            // ============ POPUP LOGIC ============
-            const popup = document.getElementById('entryPopup');
-            const closeBtn = document.getElementById('popupClose');
-            const skipBtn = document.getElementById('popupSkip');
-            const ctaBtn = document.getElementById('popupCta');
-            const video = document.getElementById('popupVideo');
-            const playOverlay = document.getElementById('playOverlay');
-            const playButton = document.getElementById('playButton');
-            const soundToggle = document.getElementById('soundToggle');
-            const soundIcon = document.getElementById('soundIcon');
-            const aboutUsLink = document.getElementById('aboutUsLink');
-            const footerAboutLink = document.getElementById('footerAboutLink');
-            const fallingBoxesContainer = document.getElementById('fallingBoxesContainer');
-
-            let hasBeenShown = false;
-            let autoCloseTimer = null;
-            let boxesInterval = null;
-
-            function openPopup() {
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                if (video) {
-                    video.pause();
-                    video.currentTime = 0;
-                }
-                if (playOverlay) {
-                    playOverlay.classList.remove('hidden');
-                }
-                if (soundToggle) {
-                    soundToggle.style.display = 'none';
-                }
-                if (autoCloseTimer) {
-                    clearTimeout(autoCloseTimer);
-                    autoCloseTimer = null;
-                }
-                // Start falling boxes rain
-                startFallingBoxes();
-            }
-
-            function closePopup() {
-                popup.classList.remove('active');
-                document.body.style.overflow = '';
-                if (video) {
-                    video.pause();
-                }
-                if (autoCloseTimer) {
-                    clearTimeout(autoCloseTimer);
-                    autoCloseTimer = null;
-                }
-                stopFallingBoxes();
-            }
-
-            function playVideo() {
-                if (!video) return;
-                video.muted = false;
-                video.loop = false;
-                const playPromise = video.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(function() {
-                        if (playOverlay) playOverlay.classList.add('hidden');
-                        if (soundToggle) soundToggle.style.display = 'flex';
-                        updateSoundIcon(false);
-                    }).catch(function() {
-                        video.muted = true;
-                        video.play().then(function() {
-                            if (playOverlay) playOverlay.classList.add('hidden');
-                            if (soundToggle) soundToggle.style.display = 'flex';
-                            updateSoundIcon(true);
-                        });
-                    });
-                }
-            }
-
-            function updateSoundIcon(isMuted) {
-                if (isMuted) {
-                    soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
-                } else {
-                    soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
-                }
-            }
-
-            // ============ FALLING BOXES RAIN ============
-            function createFallingBox() {
-                const box = document.createElement('div');
-                box.className = 'falling-box';
-                const startX = Math.random() * 100;
-                const duration = 3 + Math.random() * 4;
-                const delay = Math.random() * 0.5;
-                const size = 40 + Math.random() * 40;
-                box.style.left = startX + '%';
-                box.style.width = size + 'px';
-                box.style.height = (size * 1.2) + 'px';
-                box.style.animationDuration = duration + 's';
-                box.style.animationDelay = delay + 's';
-                box.style.opacity = '0';
-                fallingBoxesContainer.appendChild(box);
-                setTimeout(function() {
-                    if (box.parentNode) box.parentNode.removeChild(box);
-                }, (duration + delay) * 1000 + 500);
-            }
-
-            function startFallingBoxes() {
-                // Initial burst
-                for (let i = 0; i < 8; i++) {
-                    setTimeout(createFallingBox, i * 150);
-                }
-                // Continuous rain
-                boxesInterval = setInterval(createFallingBox, 400);
-            }
-
-            function stopFallingBoxes() {
-                if (boxesInterval) {
-                    clearInterval(boxesInterval);
-                    boxesInterval = null;
-                }
-                // Clear existing boxes
-                while (fallingBoxesContainer.firstChild) {
-                    fallingBoxesContainer.removeChild(fallingBoxesContainer.firstChild);
-                }
-            }
-
-            if (video) {
-                video.addEventListener('ended', function() {
-                    if (autoCloseTimer) clearTimeout(autoCloseTimer);
-                    autoCloseTimer = setTimeout(function() {
-                        closePopup();
-                    }, 2000);
-                });
-            }
-
-            if (playButton) {
-                playButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    playVideo();
-                });
-            }
-            if (playOverlay) {
-                playOverlay.addEventListener('click', function() {
-                    playVideo();
-                });
-            }
-
-            if (soundToggle) {
-                soundToggle.addEventListener('click', function() {
-                    if (!video) return;
-                    video.muted = !video.muted;
-                    updateSoundIcon(video.muted);
-                });
-            }
-
-            closeBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                closePopup();
-            });
-            skipBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                closePopup();
-            });
-            ctaBtn.addEventListener('click', function() {
-                closePopup();
-            });
-            popup.addEventListener('click', function(e) {
-                if (e.target === popup) {
-                    closePopup();
-                }
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && popup.classList.contains('active')) {
-                    closePopup();
-                }
-            });
-
-            if (aboutUsLink) {
-                aboutUsLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openPopup();
-                });
-            }
-            if (footerAboutLink) {
-                footerAboutLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openPopup();
-                });
-            }
-
-            setTimeout(function() {
-                if (!hasBeenShown) {
-                    hasBeenShown = true;
-                    openPopup();
-                }
-            }, 600);
-
-            // ============ CINEMATIC VIDEO — Sound on/off based on viewport ============
-            const cinematicVideo = document.getElementById('cinematicVideo');
-            const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
-            const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
-            let userInteracted = false;
-            let cinematicSectionVisible = false;
-
-            function unlockAudio() {
-                userInteracted = true;
-                document.removeEventListener('click', unlockAudio);
-                document.removeEventListener('touchstart', unlockAudio);
-                document.removeEventListener('keydown', unlockAudio);
-            }
-            document.addEventListener('click', unlockAudio);
-            document.addEventListener('touchstart', unlockAudio);
-            document.addEventListener('keydown', unlockAudio);
-
-            function setCinematicSoundIcon(isMuted) {
-                if (isMuted) {
-                    cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
-                    if (cinematicSoundToggle) cinematicSoundToggle.classList.add('muted');
-                } else {
-                    cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
-                    if (cinematicSoundToggle) cinematicSoundToggle.classList.remove('muted');
-                }
-            }
-
-            if (cinematicVideo) {
-                cinematicVideo.muted = true;
-                cinematicVideo.loop = true;
-
-                const playPromise = cinematicVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(function() {});
-                }
-
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        cinematicSectionVisible = entry.isIntersecting;
-
-                        if (entry.isIntersecting) {
-                            const p = cinematicVideo.play();
-                            if (p !== undefined) {
-                                p.then(function() {
-                                    if (userInteracted) {
-                                        cinematicVideo.muted = false;
-                                        setCinematicSoundIcon(false);
-                                    }
-                                }).catch(function() {});
-                            }
-                        } else {
-                            cinematicVideo.muted = true;
-                            setCinematicSoundIcon(true);
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                observer.observe(cinematicVideo.parentElement);
-
-                if (cinematicSoundToggle) {
-                    cinematicSoundToggle.addEventListener('click', function() {
-                        if (!cinematicVideo) return;
-                        cinematicVideo.muted = !cinematicVideo.muted;
-                        setCinematicSoundIcon(cinematicVideo.muted);
-                        if (!cinematicVideo.muted) userInteracted = true;
-                    });
-                }
-
-                document.addEventListener('click', function() {
-                    if (cinematicVideo && cinematicSectionVisible && cinematicVideo.muted) {
-                        cinematicVideo.muted = false;
-                        setCinematicSoundIcon(false);
-                    }
-                }, { once: true });
-            }
-
-            // ============ CONTACT FORM → WHATSAPP ============
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const name = document.getElementById('contactName').value.trim();
-                    const email = document.getElementById('contactEmail').value.trim();
-                    const subject = document.getElementById('contactSubject').value.trim();
-                    const message = document.getElementById('contactMessage').value.trim();
-
-                    let text = 'Hello HUR!%0A';
-                    if (name) text += 'Name: ' + encodeURIComponent(name) + '%0A';
-                    if (email) text += 'Email: ' + encodeURIComponent(email) + '%0A';
-                    if (subject) text += 'Subject: ' + encodeURIComponent(subject) + '%0A';
-                    if (message) text += 'Message: ' + encodeURIComponent(message) + '%0A';
-
-                    const whatsappUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text;
-                    window.open(whatsappUrl, '_blank');
-
-                    contactForm.reset();
-                });
-            }
-
-            // ============ FAQ MODAL LOGIC ============
-            const faqOverlay = document.getElementById('faqOverlay');
-            const faqClose = document.getElementById('faqClose');
-            const mobileNavBtn = document.getElementById('mobileNavBtn');
-            const faqOwner = document.getElementById('faqOwner');
-            const faqSales = document.getElementById('faqSales');
-
-            function openFaq() {
-                faqOverlay.classList.add('active');
-            }
-            function closeFaq() {
-                faqOverlay.classList.remove('active');
-            }
-
-            if (mobileNavBtn) {
-                mobileNavBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openFaq();
-                });
-            }
-            if (faqClose) {
-                faqClose.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    closeFaq();
-                });
-            }
-            if (faqOverlay) {
-                faqOverlay.addEventListener('click', function(e) {
-                    if (e.target === faqOverlay) {
-                        closeFaq();
-                    }
-                });
-            }
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && faqOverlay.classList.contains('active')) {
-                    closeFaq();
-                }
-            });
-
-            // FAQ Owner → WhatsApp with pre-filled message
-            if (faqOwner) {
-                faqOwner.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const msg = encodeURIComponent("Hello Mest! I'd like to select a HUR set. Could you help me organize my order? I'm interested in your iconic packaging. Thank you!");
-                    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + msg, '_blank');
-                    closeFaq();
-                });
-            }
-
-            // FAQ Sales → WhatsApp with pre-filled message
-            if (faqSales) {
-                faqSales.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const msg = encodeURIComponent("Hello! I'd like to speak with the sales manager. I want to make an order with the most iconic HUR packaging. Can you help me?");
-                    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + msg, '_blank');
-                    closeFaq();
-                });
-            }
-        })();
-    </script>
-
-</body>
-</html>
+        <a href="#
