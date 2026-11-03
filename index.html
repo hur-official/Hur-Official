@@ -273,7 +273,7 @@ letter-spacing: 1px;
 }
 .popup-skip:hover { color: var(--gold-light); }
 /* ============================================
-FAQ MODAL — Collection Order (2 Options)
+FAQ MODAL — Collection Order
 ============================================ */
 .faq-overlay {
 position: fixed;
@@ -448,7 +448,7 @@ z-index: 5;
 }
 .faq-close:hover { background: var(--dark); color: var(--white); }
 /* ============================================
-COLLECTION ORDER BUTTON + INFO TEXT
+COLLECTION ORDER BUTTON
 ============================================ */
 .collection-order-trigger {
 display: inline-flex;
@@ -497,53 +497,6 @@ color: var(--dark);
 .collection-block.cream .collection-order-trigger {
 background: var(--dark);
 color: var(--white);
-}
-.collection-order-info {
-margin-top: 1.25rem;
-padding: 1.25rem 1.5rem;
-background: linear-gradient(135deg, rgba(184, 147, 90, 0.06) 0%, rgba(212, 184, 138, 0.06) 100%);
-border-left: 3px solid var(--gold);
-border-radius: 4px;
-max-width: 520px;
-}
-.collection-order-info .info-en {
-font-family: var(--font-heading);
-font-size: 1rem;
-font-style: italic;
-color: var(--dark);
-line-height: 1.5;
-margin-bottom: 0.75rem;
-font-weight: 500;
-}
-.collection-order-info .info-en strong {
-color: var(--gold);
-font-weight: 600;
-font-style: normal;
-}
-.collection-order-info .info-am {
-font-size: 0.88rem;
-color: var(--text-light);
-line-height: 1.6;
-font-weight: 300;
-font-style: italic;
-}
-.collection-block.dark .collection-order-info {
-background: linear-gradient(135deg, rgba(184, 147, 90, 0.12) 0%, rgba(212, 184, 138, 0.08) 100%);
-border-left-color: var(--gold-light);
-}
-.collection-block.dark .collection-order-info .info-en {
-color: var(--white);
-}
-.collection-block.dark .collection-order-info .info-en strong {
-color: var(--gold-light);
-}
-.collection-block.dark .collection-order-info .info-am {
-color: rgba(255,255,255,0.65);
-}
-.collection-block.warm .collection-order-info,
-.collection-block.cream .collection-order-info {
-background: linear-gradient(135deg, rgba(184, 147, 90, 0.08) 0%, rgba(212, 184, 138, 0.08) 100%);
-border-left-color: var(--gold);
 }
 /* ============================================
 RUNNING MARQUEE
@@ -620,12 +573,6 @@ gap: 0.6rem;
 text-decoration: none;
 flex-shrink: 0;
 }
-.top-bar .logo-img { 
-    height: 40px; 
-    width: auto;
-    transition: var(--transition); 
-}
-.top-bar .logo-link:hover .logo-img { transform: scale(1.08); }
 .top-bar .logo-text {
 font-family: var(--font-heading);
 font-size: 1.6rem;
@@ -755,7 +702,7 @@ transition: var(--transition);
 .menu-toggle-label span::before { content: ''; top: -6px; }
 .menu-toggle-label span::after { content: ''; top: 6px; }
 /* ============================================
-HERO — Fullscreen Video Banner (Sea Video)
+HERO — Fullscreen Video Banner (NEW VIDEO)
 ============================================ */
 .hero-banner {
 position: relative;
@@ -854,6 +801,28 @@ stroke: currentColor;
 transition: transform 0.3s ease;
 }
 .hero-banner-cta:hover svg { transform: translateX(4px); }
+/* Hero sound toggle */
+.hero-sound-toggle {
+position: absolute;
+bottom: 4rem;
+right: 5%;
+z-index: 3;
+width: 52px;
+height: 52px;
+border-radius: 50%;
+background: rgba(10, 10, 10, 0.7);
+border: 1px solid rgba(184, 147, 90, 0.4);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+color: var(--white);
+backdrop-filter: blur(10px);
+transition: var(--transition);
+}
+.hero-sound-toggle:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+.hero-sound-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+.hero-sound-toggle.muted { opacity: 0.7; }
 /* ============================================
 COLLECTIONS INTRO + MINI PREVIEW CARDS
 ============================================ */
@@ -1154,7 +1123,7 @@ transition: var(--transition);
 .lightbox-prev { left: -4rem; }
 .lightbox-next { right: -4rem; }
 /* ============================================
-FULL-SCREEN CINEMATIC VIDEO (Packaging Video)
+FULL-SCREEN CINEMATIC VIDEO (Packaging Video - SWAPPED)
 ============================================ */
 .cinematic-video {
 position: relative;
@@ -1577,11 +1546,7 @@ gap: 3rem;
 padding-bottom: 3rem;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer-brand .logo-img-footer { 
-    height: 45px; 
-    width: auto;
-    margin-bottom: 1rem; 
-}
+.footer-brand .logo-svg-footer { width: 45px; height: 45px; margin-bottom: 1rem; }
 .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: var(--silver-dark); max-width: 280px; }
 .footer-links h4 {
 font-family: var(--font-body);
@@ -1656,6 +1621,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 .hero-banner { min-height: 500px; }
 .hero-banner-content { bottom: 20%; left: 5%; right: 5%; max-width: none; }
 .hero-banner-content h1 { font-size: clamp(2rem, 8vw, 3rem); }
+.hero-sound-toggle { bottom: 5rem; right: 5%; }
 .collections-preview { grid-template-columns: 1fr 1fr; gap: 1rem; padding: 0 5%; }
 .preview-card-title { font-size: 1.35rem; }
 .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
@@ -1680,13 +1646,11 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 width: 100%;
 justify-content: center;
 }
-.collection-order-info { max-width: 100%; }
 }
 @media (max-width: 480px) {
 .collections-preview { grid-template-columns: 1fr; }
 .products-grid { grid-template-columns: repeat(2, 1fr); }
 .top-bar .logo-text { font-size: 1.3rem; }
-.top-bar .logo-img { height: 34px; }
 .hero-banner { min-height: 450px; }
 .marquee-item { font-size: 0.65rem; letter-spacing: 2px; padding: 0 1rem; }
 .marquee-item .brand { font-size: 0.75rem; }
@@ -1700,7 +1664,7 @@ justify-content: center;
 <!-- Falling boxes container -->
 <div class="falling-boxes-container" id="fallingBoxesContainer"></div>
 <!-- ============================================
-POPUP MODAL — Ambassador Video (Auto-play, no play button)
+POPUP MODAL — Ambassador Video
 ============================================ -->
 <div class="popup-overlay" id="entryPopup">
 <div class="popup-content">
@@ -1735,7 +1699,7 @@ Shop the Collection
 </div>
 </div>
 <!-- ============================================
-FAQ MODAL — Collection Order (2 Options)
+FAQ MODAL — Collection Order
 ============================================ -->
 <div class="faq-overlay" id="faqOverlay">
 <div class="faq-content">
@@ -1831,7 +1795,6 @@ TOP BAR
 ============================================ -->
 <div class="top-bar">
 <a href="#" class="logo-link">
-<img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_5307.jpg?v=1793701451" alt="HUR Logo" class="logo-img">
 <span class="logo-text">HUR</span>
 </a>
 <div class="search-bar">
@@ -1865,11 +1828,11 @@ NAVIGATION BAR
 </div>
 </nav>
 <!-- ============================================
-HERO — Fullscreen Video Banner (Sea Video)
+HERO — Fullscreen Video Banner (NEW VIDEO - SWAPPED)
 ============================================ -->
 <section class="hero-banner">
-<video autoplay muted loop playsinline preload="auto">
-<source src="https://cdn.shopify.com/videos/c/o/v/0defbbfc4bdc4638b4164b3c64d8d1a8.mov" type="video/mp4">
+<video autoplay muted loop playsinline preload="auto" id="heroVideo">
+<source src="https://cdn.shopify.com/videos/c/o/v/d753c9035e31448093dc17d123aa7cdc.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <div class="hero-banner-content">
@@ -1884,6 +1847,13 @@ Explore Collections
 </svg>
 </a>
 </div>
+<button class="hero-sound-toggle muted" id="heroSoundToggle" aria-label="Toggle sound">
+<svg id="heroSoundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+<line x1="23" y1="9" x2="17" y2="15"/>
+<line x1="17" y1="9" x2="23" y2="15"/>
+</svg>
+</button>
 </section>
 <!-- ============================================
 COLLECTIONS INTRO + MINI PREVIEW CARDS
@@ -1977,10 +1947,6 @@ COLLECTION 1 — AREVA
 </svg>
 Order this collection
 </button>
-<div class="collection-order-info">
-<p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
-</div>
 </div>
 </div>
 <div class="collection-products">
@@ -2021,10 +1987,6 @@ COLLECTION 2 — RUNE
 </svg>
 Order this collection
 </button>
-<div class="collection-order-info">
-<p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
-</div>
 </div>
 </div>
 <div class="collection-products">
@@ -2065,10 +2027,6 @@ COLLECTION 3 — HALO
 </svg>
 Order this collection
 </button>
-<div class="collection-order-info">
-<p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
-</div>
 </div>
 </div>
 <div class="collection-products">
@@ -2110,10 +2068,6 @@ COLLECTION 4 — GLOW
 </svg>
 Order this collection
 </button>
-<div class="collection-order-info">
-<p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով նչպես նաեւ եռք բերել նախընտրած զարդը առանձին:</p>
-</div>
 </div>
 </div>
 <div class="collection-products">
@@ -2232,7 +2186,7 @@ LIGHTBOXES
 <a href="#lb-g1" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
 </div></div>
 <!-- ============================================
-FULL-SCREEN CINEMATIC VIDEO (Packaging Video)
+FULL-SCREEN CINEMATIC VIDEO (Packaging Video - SWAPPED)
 ============================================ -->
 <section class="cinematic-video" id="about">
 <video muted loop playsinline preload="auto" id="cinematicVideo">
@@ -2463,7 +2417,21 @@ FOOTER
 <footer class="footer">
 <div class="footer-content">
 <div class="footer-brand">
-<img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_5307.jpg?v=1793701451" alt="HUR Logo" class="logo-img-footer">
+<svg class="logo-svg-footer" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="logoGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:#f7971e"/>
+<stop offset="25%" style="stop-color:#ff6b9d"/>
+<stop offset="50%" style="stop-color:#e1306c"/>
+<stop offset="75%" style="stop-color:#c471ed"/>
+<stop offset="100%" style="stop-color:#833ab4"/>
+</linearGradient>
+</defs>
+<circle cx="50" cy="50" r="46" fill="#1a1a1a"/>
+<circle cx="50" cy="50" r="42" fill="url(#logoGradFooter)"/>
+<circle cx="50" cy="50" r="39" fill="#ffffff"/>
+<text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#1a1a1a" letter-spacing="1">HUR</text>
+</svg>
 <p>Handcrafted silver accessories designed for the modern individual. Timeless elegance, ethically made.</p>
 <div class="footer-social">
 <a href="https://www.instagram.com/hur__official/" target="_blank" aria-label="Instagram">
@@ -2524,7 +2492,7 @@ SCRIPTS
 <script>
 (function() {
 const WHATSAPP_NUMBER = '37455977911';
-// ============ POPUP LOGIC (Auto-play, no auto-open on load) ============
+// ============ POPUP LOGIC ============
 const popup = document.getElementById('entryPopup');
 const closeBtn = document.getElementById('popupClose');
 const skipBtn = document.getElementById('popupSkip');
@@ -2627,10 +2595,8 @@ popup.addEventListener('click', function(e) { if (e.target === popup) closePopup
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
 });
-// About Us link opens popup (no auto-open on page load)
 if (aboutUsLink) aboutUsLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
 if (footerAboutLink) footerAboutLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
-// Unlock audio on first interaction
 function unlockPopupAudio() {
 popupAudioUnlocked = true;
 if (popup.classList.contains('active') && video && video.muted) {
@@ -2644,6 +2610,49 @@ document.removeEventListener('keydown', unlockPopupAudio);
 document.addEventListener('click', unlockPopupAudio);
 document.addEventListener('touchstart', unlockPopupAudio);
 document.addEventListener('keydown', unlockPopupAudio);
+// ============ HERO VIDEO — Auto-play with sound on interaction ============
+const heroVideo = document.getElementById('heroVideo');
+const heroSoundToggle = document.getElementById('heroSoundToggle');
+const heroSoundIcon = document.getElementById('heroSoundIcon');
+let heroAudioUnlocked = false;
+function setHeroSoundIcon(isMuted) {
+if (isMuted) {
+heroSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+if (heroSoundToggle) heroSoundToggle.classList.add('muted');
+} else {
+heroSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+if (heroSoundToggle) heroSoundToggle.classList.remove('muted');
+}
+}
+if (heroVideo) {
+heroVideo.muted = true;
+heroVideo.loop = true;
+const playPromise = heroVideo.play();
+if (playPromise !== undefined) playPromise.catch(function() {});
+if (heroSoundToggle) {
+heroSoundToggle.addEventListener('click', function() {
+if (!heroVideo) return;
+heroVideo.muted = !heroVideo.muted;
+setHeroSoundIcon(heroVideo.muted);
+if (!heroVideo.muted) heroAudioUnlocked = true;
+});
+}
+}
+function unlockHeroAudio() {
+heroAudioUnlocked = true;
+if (heroVideo && heroVideo.muted) {
+heroVideo.muted = false;
+setHeroSoundIcon(false);
+}
+document.removeEventListener('click', unlockHeroAudio);
+document.removeEventListener('touchstart', unlockHeroAudio);
+document.removeEventListener('scroll', unlockHeroAudio);
+document.removeEventListener('keydown', unlockHeroAudio);
+}
+document.addEventListener('click', unlockHeroAudio);
+document.addEventListener('touchstart', unlockHeroAudio);
+document.addEventListener('scroll', unlockHeroAudio);
+document.addEventListener('keydown', unlockHeroAudio);
 // ============ CINEMATIC VIDEO ============
 const cinematicVideo = document.getElementById('cinematicVideo');
 const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
@@ -2726,7 +2735,7 @@ window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 contactForm.reset();
 });
 }
-// ============ FAQ MODAL — Collection Order (2 Options) ============
+// ============ FAQ MODAL — Collection Order ============
 const faqOverlay = document.getElementById('faqOverlay');
 const faqClose = document.getElementById('faqClose');
 const faqCollectionBadge = document.getElementById('faqCollectionBadge');
