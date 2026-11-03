@@ -73,7 +73,7 @@ opacity: 0;
 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
 /* ============================================
-POPUP MODAL — Ambassador Video (Auto-play)
+POPUP MODAL — Ambassador Video
 ============================================ */
 .popup-overlay {
 position: fixed;
@@ -620,8 +620,12 @@ gap: 0.6rem;
 text-decoration: none;
 flex-shrink: 0;
 }
-.top-bar .logo-svg { width: 40px; height: 40px; transition: var(--transition); }
-.top-bar .logo-link:hover .logo-svg { transform: scale(1.08); }
+.top-bar .logo-img { 
+    height: 40px; 
+    width: auto;
+    transition: var(--transition); 
+}
+.top-bar .logo-link:hover .logo-img { transform: scale(1.08); }
 .top-bar .logo-text {
 font-family: var(--font-heading);
 font-size: 1.6rem;
@@ -751,7 +755,7 @@ transition: var(--transition);
 .menu-toggle-label span::before { content: ''; top: -6px; }
 .menu-toggle-label span::after { content: ''; top: 6px; }
 /* ============================================
-HERO — Fullscreen Video Banner
+HERO — Fullscreen Video Banner (Sea Video)
 ============================================ */
 .hero-banner {
 position: relative;
@@ -1150,7 +1154,7 @@ transition: var(--transition);
 .lightbox-prev { left: -4rem; }
 .lightbox-next { right: -4rem; }
 /* ============================================
-FULL-SCREEN CINEMATIC VIDEO
+FULL-SCREEN CINEMATIC VIDEO (Packaging Video)
 ============================================ */
 .cinematic-video {
 position: relative;
@@ -1573,7 +1577,11 @@ gap: 3rem;
 padding-bottom: 3rem;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer-brand .logo-svg-footer { width: 45px; height: 45px; margin-bottom: 1rem; }
+.footer-brand .logo-img-footer { 
+    height: 45px; 
+    width: auto;
+    margin-bottom: 1rem; 
+}
 .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: var(--silver-dark); max-width: 280px; }
 .footer-links h4 {
 font-family: var(--font-body);
@@ -1668,14 +1676,17 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 .video-overlay-text { padding: 2rem 1rem 1rem; }
 .video-overlay-text .popup-title { font-size: 1.4rem; }
 .faq-content { padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom, 0)); }
-.collection-order-trigger { width: 100%; justify-content: center; }
+.collection-order-trigger {
+width: 100%;
+justify-content: center;
+}
 .collection-order-info { max-width: 100%; }
 }
 @media (max-width: 480px) {
 .collections-preview { grid-template-columns: 1fr; }
 .products-grid { grid-template-columns: repeat(2, 1fr); }
 .top-bar .logo-text { font-size: 1.3rem; }
-.top-bar .logo-svg { width: 34px; height: 34px; }
+.top-bar .logo-img { height: 34px; }
 .hero-banner { min-height: 450px; }
 .marquee-item { font-size: 0.65rem; letter-spacing: 2px; padding: 0 1rem; }
 .marquee-item .brand { font-size: 0.75rem; }
@@ -1701,7 +1712,7 @@ Your browser does not support the video tag.
 </video>
 <div class="video-overlay-text">
 <span class="popup-tag">Ambassador</span>
-<h3 class="popup-title">Metaksya <em>Shmavonyan</em></h3>
+<h3 class="popup-title">Mest <em>Shmavonian</em></h3>
 </div>
 <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
 <svg id="soundIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -1747,7 +1758,7 @@ FAQ MODAL — Collection Order (2 Options)
 </div>
 <div class="faq-item-desc" id="faqFullSetDesc">Get the complete collection with our signature HUR packaging — curated by Mest herself.</div>
 <div class="faq-item-cta">
-<span>Chat with Metaksya</span>
+<span>Chat with Mest</span>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <line x1="5" y1="12" x2="19" y2="12"/>
 <polyline points="12 5 19 12 12 19"/>
@@ -1792,7 +1803,7 @@ RUNNING MARQUEE
 <span class="marquee-separator"></span>
 <span class="marquee-item">Handcrafted Silver</span>
 <span class="marquee-separator"></span>
-<span class="marquee-item">Free Shipping</span>
+<span class="marquee-item">Worldwide Shipping</span>
 <span class="marquee-separator"></span>
 <span class="marquee-item">Unique Design</span>
 <span class="marquee-separator"></span>
@@ -1808,7 +1819,7 @@ RUNNING MARQUEE
 <span class="marquee-separator"></span>
 <span class="marquee-item">Handcrafted Silver</span>
 <span class="marquee-separator"></span>
-<span class="marquee-item">Free Shipping</span>
+<span class="marquee-item">Worldwide Shipping</span>
 <span class="marquee-separator"></span>
 <span class="marquee-item">Unique Design</span>
 <span class="marquee-separator"></span>
@@ -1820,21 +1831,7 @@ TOP BAR
 ============================================ -->
 <div class="top-bar">
 <a href="#" class="logo-link">
-<svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="logoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-<stop offset="0%" style="stop-color:#f7971e"/>
-<stop offset="25%" style="stop-color:#ff6b9d"/>
-<stop offset="50%" style="stop-color:#e1306c"/>
-<stop offset="75%" style="stop-color:#c471ed"/>
-<stop offset="100%" style="stop-color:#833ab4"/>
-</linearGradient>
-</defs>
-<circle cx="50" cy="50" r="46" fill="#1a1a1a"/>
-<circle cx="50" cy="50" r="42" fill="url(#logoGrad)"/>
-<circle cx="50" cy="50" r="39" fill="#ffffff"/>
-<text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#1a1a1a" letter-spacing="1">HUR</text>
-</svg>
+<img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_5307.jpg?v=1793701451" alt="HUR Logo" class="logo-img">
 <span class="logo-text">HUR</span>
 </a>
 <div class="search-bar">
@@ -1842,7 +1839,7 @@ TOP BAR
 <circle cx="11" cy="11" r="8"/>
 <line x1="21" y1="21" x2="16.65" y2="16.65"/>
 </svg>
-<input type="text" placeholder="Search ?">
+<input type="text" placeholder="What can we help you find?">
 </div>
 <div class="top-icons">
 <a href="#" aria-label="Account">
@@ -1868,11 +1865,11 @@ NAVIGATION BAR
 </div>
 </nav>
 <!-- ============================================
-HERO — Fullscreen Video Banner
+HERO — Fullscreen Video Banner (Sea Video)
 ============================================ -->
 <section class="hero-banner">
 <video autoplay muted loop playsinline preload="auto">
-<source src="https://cdn.shopify.com/videos/c/o/v/0defbbfc4bdc4638b4164b3c64d8d1a8.mp4" type="video/mp4"> 
+<source src="https://cdn.shopify.com/videos/c/o/v/0defbbfc4bdc4638b4164b3c64d8d1a8.mov" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <div class="hero-banner-content">
@@ -1903,7 +1900,9 @@ COLLECTIONS INTRO + MINI PREVIEW CARDS
 </svg>
 </div>
 <div class="preview-card-content">
+<div class="preview-card-tag">Collection I</div>
 <div class="preview-card-title">AREVA</div>
+<div class="preview-card-sub">ԱՐՎԱ · Sun Symbol</div>
 </div>
 </a>
 <a href="#rune" class="preview-card">
@@ -1915,7 +1914,9 @@ COLLECTIONS INTRO + MINI PREVIEW CARDS
 </svg>
 </div>
 <div class="preview-card-content">
+<div class="preview-card-tag">Collection II</div>
 <div class="preview-card-title">RUNE</div>
+<div class="preview-card-sub">Strength in Contrast</div>
 </div>
 </a>
 <a href="#halo" class="preview-card">
@@ -1927,7 +1928,9 @@ COLLECTIONS INTRO + MINI PREVIEW CARDS
 </svg>
 </div>
 <div class="preview-card-content">
+<div class="preview-card-tag">Collection III</div>
 <div class="preview-card-title">HALO</div>
+<div class="preview-card-sub">Inner Light · Balance</div>
 </div>
 </a>
 <a href="#glow" class="preview-card">
@@ -1939,13 +1942,15 @@ COLLECTIONS INTRO + MINI PREVIEW CARDS
 </svg>
 </div>
 <div class="preview-card-content">
+<div class="preview-card-tag">Collection IV</div>
 <div class="preview-card-title">GLOW</div>
+<div class="preview-card-sub">First Stone · Warmth</div>
 </div>
 </a>
 </div>
 </section>
 <!-- ============================================
-COLLECTION  — AREVA
+COLLECTION 1 — AREVA
 ============================================ -->
 <section class="collection-block light" id="areva">
 <div class="collection-hero">
@@ -1953,11 +1958,11 @@ COLLECTION  — AREVA
 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.33.54.jpg?v=1792575373" alt="AREVA Collection by HUR">
 </div>
 <div class="collection-hero-text">
-<h2 class="collection-title">AREVA / ԱՐԵՎԱ<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);</span></h2>
+<h2 class="collection-title">AREVA / ԱՐԵՎԱ<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">by HUR ⛓🤍</span></h2>
 <p class="collection-desc-armenian">Հայկական քարի մեջ պահպանված արևի խորհրդանիշը՝</p>
 <p class="collection-desc-armenian">վերաիմաստավորված արծաթի մեջ։</p>
 <p class="collection-desc" style="margin-top: 1rem;">
-<span class="gold-accent">Լույս։ Կյանք։ Շարունակություն։</span> 
+<span class="gold-accent">Լույս։ Կյանք։ Շարունակություն։</span> 🤍
 </p>
 <p class="collection-desc" style="margin-top: 1.25rem;">A symbol of the sun, rooted in Armenian stone.</p>
 <p class="collection-desc">Reimagined in silver.</p>
@@ -1974,7 +1979,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -1994,7 +1999,7 @@ Order this collection
 </div>
 </section>
 <!-- ============================================
-COLLECTION — RUNE
+COLLECTION 2 — RUNE
 ============================================ -->
 <section class="collection-block dark" id="rune">
 <div class="collection-hero reverse">
@@ -2002,7 +2007,7 @@ COLLECTION — RUNE
 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.54.54.jpg?v=1792576557" alt="RUNE Collection by HUR">
 </div>
 <div class="collection-hero-text">
-<h2 class="collection-title">RUNE<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold-light);</span></h2>
+<h2 class="collection-title">RUNE<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold-light);">by HUR ⛓</span></h2>
 <p class="collection-desc">RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.</p>
 <p class="collection-desc">A reminder that strength doesn't always need to be loud.</p>
 <p class="collection-desc" style="margin-top: 1.5rem; font-style: italic;">Wear your mark.</p>
@@ -2018,7 +2023,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2035,7 +2040,7 @@ Order this collection
 </div>
 </section>
 <!-- ============================================
-COLLECTION — HALO
+COLLECTION 3 — HALO
 ============================================ -->
 <section class="collection-block warm" id="halo">
 <div class="collection-hero">
@@ -2043,12 +2048,12 @@ COLLECTION — HALO
 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.42.jpg?v=1792577243" alt="HALO Collection by HUR">
 </div>
 <div class="collection-hero-text">
-<h2 class="collection-title">HALO<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);</span></h2>
-<p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։</p>
+<h2 class="collection-title">HALO<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">Collection 🤍⛓</span></h2>
+<p class="collection-desc-armenian">Պարզությունը երբեմն ամենահամարակ ընտրությունն է։</p>
 <p class="collection-desc-armenian">HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։</p>
-<p class="collection-desc-armenian">Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
+<p class="collection-desc-armenian">Յուրաքանչյուր րջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։</p>
 <p class="collection-desc-armenian">Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը որհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։</p>
-<p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։</p>
+<p class="collection-desc-armenian">Այս հավաքածուն ստեղծված է հիշեցնելու, որ սկական լույսը միշտ գալիս է ներսից։</p>
 <p class="collection-desc" style="margin-top: 1.25rem; font-weight: 500;">HALO by HUR</p>
 <button class="collection-order-trigger" data-collection="HALO">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2062,7 +2067,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2079,7 +2084,7 @@ Order this collection
 </div>
 </section>
 <!-- ============================================
-COLLECTION — GLOW
+COLLECTION 4 — GLOW
 ============================================ -->
 <section class="collection-block cream" id="glow">
 <div class="collection-hero reverse">
@@ -2087,12 +2092,14 @@ COLLECTION — GLOW
 <img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.00.jpg?v=1792577437" alt="GLOW Collection by HUR">
 </div>
 <div class="collection-hero-text">
-<h2 class="collection-title">GLOW Cuff<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);</span></h2>
+<h2 class="collection-title">GLOW Cuff<br><span style="font-size: 1.5rem; font-style: italic; color: var(--gold);">by HUR 🧡️</span></h2>
 <p class="collection-desc">Our first design featuring a stone.</p>
 <p class="collection-desc">A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.</p>
-<p class="collection-desc-armenian" style="margin-top: 1.25rem;">Առաջին անգամ՝ քար HUR-ի զարդերում։</p>
-<p class="collection-desc-armenian">Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի իր յուրահատուկ բնավորությունը։</p>
-<p class="collection-desc" style="margin-top: 1rem; font-weight: 500;</p>
+<p class="collection-desc">A new expression of HUR. ⛓</p>
+<p class="collection-desc-armenian" style="margin-top: 1.25rem;">Առաջին անգամ քար HUR-ի զարդերում։</p>
+<p class="collection-desc-armenian">Քարի մեղմ այլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի ր յուրահատուկ բնավորությունը։</p>
+<p class="collection-desc-armenian">Նոր դետալ։ Նոր արտահայտություն։</p>
+<p class="collection-desc" style="margin-top: 1rem; font-weight: 500;">HUR 🤍⛓️🔥</p>
 <button class="collection-order-trigger" data-collection="GLOW">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <circle cx="9" cy="21" r="1"/>
@@ -2105,7 +2112,7 @@ Order this collection
 </button>
 <div class="collection-order-info">
 <p class="info-en">You can buy the <strong>full set</strong> with a more profitable sale, otherwise you can buy it <strong>separately</strong>.</p>
-<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով, ինչպես նաեւ ձեռք բերել նախընտրած զարդը առանձին:</p>
+<p class="info-am">Դուք ունեք հնարավորություն գնելու ամբողջական հավաքածուն հաճելի զեղչով նչպես նաեւ եռք բերել նախընտրած զարդը առանձին:</p>
 </div>
 </div>
 </div>
@@ -2225,11 +2232,11 @@ LIGHTBOXES
 <a href="#lb-g1" class="lightbox-nav lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
 </div></div>
 <!-- ============================================
-FULL-SCREEN CINEMATIC VIDEO
+FULL-SCREEN CINEMATIC VIDEO (Packaging Video)
 ============================================ -->
 <section class="cinematic-video" id="about">
 <video muted loop playsinline preload="auto" id="cinematicVideo">
-<source src="https://cdn.shopify.com/videos/c/o/v/d753c9035e31448093dc17d123aa7cdc.mp4" type="video/mp4">
+<source src="https://cdn.shopify.com/videos/c/o/v/2076cd013f5a47e999e7c67cfb4294bc.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <div class="cinematic-video-content">
@@ -2252,6 +2259,7 @@ REVIEWS SECTION
 <div class="reviews-inner">
 <div class="reviews-header">
 <span class="section-label">Client Voices</span>
+<h2>Honest reviews and impressions<br>from our <em>clients</em></h2>
 <div class="divider"></div>
 </div>
 <div class="reviews-grid">
@@ -2266,7 +2274,7 @@ REVIEWS SECTION
 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 </div>
-<p class="review-quote">"Honest reviews and impressions from our clients"</p>
+<p class="review-quote">"The AREVA ring feels like it was made for me. Ancient soul, modern hand."</p>
 <div class="review-author">
 <div class="review-author-avatar">A</div>
 <div class="review-author-info">
@@ -2292,7 +2300,7 @@ REVIEWS SECTION
 <div class="review-author-avatar">L</div>
 <div class="review-author-info">
 <div class="review-author-name">Lilit K.</div>
-<div class="review-author-location">Gyumri, Armenia</div>
+<div class="review-author-location">Istanbul, Turkey</div>
 </div>
 </div>
 </div>
@@ -2329,12 +2337,12 @@ REVIEWS SECTION
 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 </div>
-<p class="review-quote">"The GLOW cuff is my everyday ritual."</p>
+<p class="review-quote">"The GLOW cuff is my everyday ritual. Warm stone, cool silver — perfect balance."</p>
 <div class="review-author">
 <div class="review-author-avatar">M</div>
 <div class="review-author-info">
 <div class="review-author-name">Mari T.</div>
-<div class="review-author-location">Glendale, USA</div>
+<div class="review-author-location">Dubai, UAE</div>
 </div>
 </div>
 </div>
@@ -2356,6 +2364,24 @@ REVIEWS SECTION
 <div class="review-highlight-divider"></div>
 <div class="review-highlight">
 <span class="quote-mark">"</span>
+<span class="quote-text">Strength doesn't need to be loud</span>
+<span class="quote-author">— Lilit K.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
+<span class="quote-text">True light comes from within</span>
+<span class="quote-author">— Sona G.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
+<span class="quote-text">A new expression of elegance</span>
+<span class="quote-author">— Mari T.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
 <span class="quote-text">Every piece feels like it was made just for me</span>
 <span class="quote-author">— Loyal Customer</span>
 </div>
@@ -2364,6 +2390,24 @@ REVIEWS SECTION
 <span class="quote-mark">"</span>
 <span class="quote-text">The quality is unmatched</span>
 <span class="quote-author">— Anahit M.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
+<span class="quote-text">Strength doesn't need to be loud</span>
+<span class="quote-author">— Lilit K.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
+<span class="quote-text">True light comes from within</span>
+<span class="quote-author">— Sona G.</span>
+</div>
+<div class="review-highlight-divider"></div>
+<div class="review-highlight">
+<span class="quote-mark">"</span>
+<span class="quote-text">A new expression of elegance</span>
+<span class="quote-author">— Mari T.</span>
 </div>
 <div class="review-highlight-divider"></div>
 </div>
@@ -2409,7 +2453,7 @@ CONTACT SECTION
 <div class="form-group"><textarea id="contactMessage" placeholder="Your Message" required></textarea></div>
 <button type="submit" class="submit-btn">
 <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-Send via Email
+Send via WhatsApp
 </button>
 </form>
 </section>
@@ -2419,21 +2463,7 @@ FOOTER
 <footer class="footer">
 <div class="footer-content">
 <div class="footer-brand">
-<svg class="logo-svg-footer" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="logoGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
-<stop offset="0%" style="stop-color:#f7971e"/>
-<stop offset="25%" style="stop-color:#ff6b9d"/>
-<stop offset="50%" style="stop-color:#e1306c"/>
-<stop offset="75%" style="stop-color:#c471ed"/>
-<stop offset="100%" style="stop-color:#833ab4"/>
-</linearGradient>
-</defs>
-<circle cx="50" cy="50" r="46" fill="#1a1a1a"/>
-<circle cx="50" cy="50" r="42" fill="url(#logoGradFooter)"/>
-<circle cx="50" cy="50" r="39" fill="#ffffff"/>
-<text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#1a1a1a" letter-spacing="1">HUR</text>
-</svg>
+<img src="https://cdn.shopify.com/s/files/1/0680/7909/1850/files/IMG_5307.jpg?v=1793701451" alt="HUR Logo" class="logo-img-footer">
 <p>Handcrafted silver accessories designed for the modern individual. Timeless elegance, ethically made.</p>
 <div class="footer-social">
 <a href="https://www.instagram.com/hur__official/" target="_blank" aria-label="Instagram">
@@ -2494,7 +2524,7 @@ SCRIPTS
 <script>
 (function() {
 const WHATSAPP_NUMBER = '37455977911';
-// ============ POPUP LOGIC (Auto-play, no play button) ============
+// ============ POPUP LOGIC (Auto-play, no auto-open on load) ============
 const popup = document.getElementById('entryPopup');
 const closeBtn = document.getElementById('popupClose');
 const skipBtn = document.getElementById('popupSkip');
@@ -2505,17 +2535,14 @@ const soundIcon = document.getElementById('soundIcon');
 const aboutUsLink = document.getElementById('aboutUsLink');
 const footerAboutLink = document.getElementById('footerAboutLink');
 const fallingBoxesContainer = document.getElementById('fallingBoxesContainer');
-let hasBeenShown = false;
 let autoCloseTimer = null;
 let boxesInterval = null;
 let popupAudioUnlocked = false;
-
 function openPopup() {
 popup.classList.add('active');
 document.body.style.overflow = 'hidden';
 if (video) {
 video.currentTime = 0;
-// Try to autoplay with sound if user has already interacted
 if (popupAudioUnlocked) {
 video.muted = false;
 updateSoundIcon(false);
@@ -2526,7 +2553,6 @@ updateSoundIcon(true);
 const playPromise = video.play();
 if (playPromise !== undefined) {
 playPromise.catch(function() {
-// Autoplay blocked — keep muted and try again on next interaction
 video.muted = true;
 updateSoundIcon(true);
 video.play().catch(function() {});
@@ -2537,7 +2563,6 @@ if (soundToggle) soundToggle.style.display = 'flex';
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 startFallingBoxes();
 }
-
 function closePopup() {
 popup.classList.remove('active');
 document.body.style.overflow = '';
@@ -2545,7 +2570,6 @@ if (video) video.pause();
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 stopFallingBoxes();
 }
-
 function updateSoundIcon(isMuted) {
 if (isMuted) {
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2553,7 +2577,6 @@ soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><lin
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
 }
 }
-
 function createFallingBox() {
 const box = document.createElement('div');
 box.className = 'falling-box';
@@ -2571,28 +2594,24 @@ setTimeout(function() {
 if (box.parentNode) box.parentNode.removeChild(box);
 }, (duration + delay) * 1000 + 500);
 }
-
 function startFallingBoxes() {
 for (let i = 0; i < 8; i++) {
 setTimeout(createFallingBox, i * 150);
 }
 boxesInterval = setInterval(createFallingBox, 400);
 }
-
 function stopFallingBoxes() {
 if (boxesInterval) { clearInterval(boxesInterval); boxesInterval = null; }
 while (fallingBoxesContainer.firstChild) {
 fallingBoxesContainer.removeChild(fallingBoxesContainer.firstChild);
 }
 }
-
 if (video) {
 video.addEventListener('ended', function() {
 if (autoCloseTimer) clearTimeout(autoCloseTimer);
 autoCloseTimer = setTimeout(closePopup, 2000);
 });
 }
-
 if (soundToggle) {
 soundToggle.addEventListener('click', function() {
 if (!video) return;
@@ -2601,11 +2620,19 @@ updateSoundIcon(video.muted);
 if (!video.muted) popupAudioUnlocked = true;
 });
 }
-
-// Unlock audio on first user interaction anywhere on the page
+closeBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
+skipBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
+ctaBtn.addEventListener('click', closePopup);
+popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
+});
+// About Us link opens popup (no auto-open on page load)
+if (aboutUsLink) aboutUsLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
+if (footerAboutLink) footerAboutLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
+// Unlock audio on first interaction
 function unlockPopupAudio() {
 popupAudioUnlocked = true;
-// If popup is currently open and video is muted, unmute it
 if (popup.classList.contains('active') && video && video.muted) {
 video.muted = false;
 updateSoundIcon(false);
@@ -2617,29 +2644,12 @@ document.removeEventListener('keydown', unlockPopupAudio);
 document.addEventListener('click', unlockPopupAudio);
 document.addEventListener('touchstart', unlockPopupAudio);
 document.addEventListener('keydown', unlockPopupAudio);
-
-closeBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
-skipBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
-ctaBtn.addEventListener('click', closePopup);
-popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
-document.addEventListener('keydown', function(e) {
-if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
-});
-
-if (aboutUsLink) aboutUsLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
-if (footerAboutLink) footerAboutLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
-
-setTimeout(function() {
-if (!hasBeenShown) { hasBeenShown = true; openPopup(); }
-}, 600);
-
 // ============ CINEMATIC VIDEO ============
 const cinematicVideo = document.getElementById('cinematicVideo');
 const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
 const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
 let userInteracted = false;
 let cinematicSectionVisible = false;
-
 function unlockAudio() {
 userInteracted = true;
 document.removeEventListener('click', unlockAudio);
@@ -2649,7 +2659,6 @@ document.removeEventListener('keydown', unlockAudio);
 document.addEventListener('click', unlockAudio);
 document.addEventListener('touchstart', unlockAudio);
 document.addEventListener('keydown', unlockAudio);
-
 function setCinematicSoundIcon(isMuted) {
 if (isMuted) {
 cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2659,7 +2668,6 @@ cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11
 if (cinematicSoundToggle) cinematicSoundToggle.classList.remove('muted');
 }
 }
-
 if (cinematicVideo) {
 cinematicVideo.muted = true;
 cinematicVideo.loop = true;
@@ -2700,7 +2708,6 @@ setCinematicSoundIcon(false);
 }
 }, { once: true });
 }
-
 // ============ CONTACT FORM → WHATSAPP ============
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -2719,7 +2726,6 @@ window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 contactForm.reset();
 });
 }
-
 // ============ FAQ MODAL — Collection Order (2 Options) ============
 const faqOverlay = document.getElementById('faqOverlay');
 const faqClose = document.getElementById('faqClose');
@@ -2728,7 +2734,6 @@ const faqFullSet = document.getElementById('faqFullSet');
 const faqSeparate = document.getElementById('faqSeparate');
 const orderButtons = document.querySelectorAll('.collection-order-trigger');
 let currentCollection = '';
-
 function openFaq(collectionName) {
 currentCollection = collectionName || '';
 if (collectionName) {
@@ -2743,17 +2748,14 @@ document.getElementById('faqSeparateTitle').textContent = 'I want to buy separat
 }
 faqOverlay.classList.add('active');
 }
-
 function closeFaq() {
 faqOverlay.classList.remove('active');
 }
-
 function sendWhatsApp(message) {
 const text = encodeURIComponent(message);
 window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 closeFaq();
 }
-
 orderButtons.forEach(function(btn) {
 btn.addEventListener('click', function(e) {
 e.preventDefault();
@@ -2761,7 +2763,6 @@ const collection = btn.getAttribute('data-collection');
 openFaq(collection);
 });
 });
-
 if (faqClose) faqClose.addEventListener('click', function(e) { e.preventDefault(); closeFaq(); });
 if (faqOverlay) {
 faqOverlay.addEventListener('click', function(e) {
@@ -2771,7 +2772,6 @@ if (e.target === faqOverlay) closeFaq();
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && faqOverlay.classList.contains('active')) closeFaq();
 });
-
 if (faqFullSet) {
 faqFullSet.addEventListener('click', function(e) {
 e.preventDefault();
