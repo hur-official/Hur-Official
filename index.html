@@ -2391,6 +2391,8 @@ Send via WhatsApp
 <script>
 (function() {
 const WHATSAPP_NUMBER = '37455977911';
+
+// ============ POPUP LOGIC (NO auto-open) ============
 const popup = document.getElementById('entryPopup');
 const closeBtn = document.getElementById('popupClose');
 const skipBtn = document.getElementById('popupSkip');
@@ -2401,9 +2403,11 @@ const soundIcon = document.getElementById('soundIcon');
 const aboutUsLink = document.getElementById('aboutUsLink');
 const footerAboutLink = document.getElementById('footerAboutLink');
 const fallingBoxesContainer = document.getElementById('fallingBoxesContainer');
+
 let autoCloseTimer = null;
 let boxesInterval = null;
 let popupAudioUnlocked = false;
+
 function openPopup() {
 popup.classList.add('active');
 document.body.style.overflow = 'hidden';
@@ -2429,6 +2433,7 @@ if (soundToggle) soundToggle.style.display = 'flex';
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 startFallingBoxes();
 }
+
 function closePopup() {
 popup.classList.remove('active');
 document.body.style.overflow = '';
@@ -2436,6 +2441,7 @@ if (video) video.pause();
 if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
 stopFallingBoxes();
 }
+
 function updateSoundIcon(isMuted) {
 if (isMuted) {
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2443,6 +2449,7 @@ soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><lin
 soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
 }
 }
+
 function createFallingBox() {
 const box = document.createElement('div');
 box.className = 'falling-box';
@@ -2460,24 +2467,28 @@ setTimeout(function() {
 if (box.parentNode) box.parentNode.removeChild(box);
 }, (duration + delay) * 1000 + 500);
 }
+
 function startFallingBoxes() {
 for (let i = 0; i < 8; i++) {
 setTimeout(createFallingBox, i * 150);
 }
 boxesInterval = setInterval(createFallingBox, 400);
 }
+
 function stopFallingBoxes() {
 if (boxesInterval) { clearInterval(boxesInterval); boxesInterval = null; }
 while (fallingBoxesContainer.firstChild) {
 fallingBoxesContainer.removeChild(fallingBoxesContainer.firstChild);
 }
 }
+
 if (video) {
 video.addEventListener('ended', function() {
 if (autoCloseTimer) clearTimeout(autoCloseTimer);
 autoCloseTimer = setTimeout(closePopup, 2000);
 });
 }
+
 if (soundToggle) {
 soundToggle.addEventListener('click', function() {
 if (!video) return;
@@ -2486,6 +2497,7 @@ updateSoundIcon(video.muted);
 if (!video.muted) popupAudioUnlocked = true;
 });
 }
+
 closeBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
 skipBtn.addEventListener('click', function(e) { e.preventDefault(); closePopup(); });
 ctaBtn.addEventListener('click', closePopup);
@@ -2493,14 +2505,12 @@ popup.addEventListener('click', function(e) { if (e.target === popup) closePopup
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
 });
+
+// About Us links open popup (NO auto-open on page load)
 if (aboutUsLink) aboutUsLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
 if (footerAboutLink) footerAboutLink.addEventListener('click', function(e) { e.preventDefault(); openPopup(); });
-setTimeout(function() {
-if (!popupAudioUnlocked) {
-popupAudioUnlocked = true;
-openPopup();
-}
-}, 600);
+
+// ============ GLOBAL USER INTERACTION TRACKING ============
 let userInteracted = false;
 function unlockAudio() {
 userInteracted = true;
@@ -2513,10 +2523,14 @@ document.addEventListener('click', unlockAudio);
 document.addEventListener('touchstart', unlockAudio);
 document.addEventListener('scroll', unlockAudio);
 document.addEventListener('keydown', unlockAudio);
+
+// ============ HERO VIDEO — Auto-play with sound on scroll ============
 const heroVideo = document.getElementById('heroVideo');
 const heroSoundToggle = document.getElementById('heroSoundToggle');
 const heroSoundIcon = document.getElementById('heroSoundIcon');
-let heroAudioUnlocked = false;
+let heroVisible = false;
+let heroManuallyUnmuted = false;
+
 function setHeroSoundIcon(isMuted) {
 if (isMuted) {
 heroSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2526,39 +2540,59 @@ heroSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
 if (heroSoundToggle) heroSoundToggle.classList.remove('muted');
 }
 }
+
 if (heroVideo) {
 heroVideo.muted = true;
 heroVideo.loop = true;
 const playPromise = heroVideo.play();
 if (playPromise !== undefined) playPromise.catch(function() {});
+
+// IntersectionObserver — mute when scrolled away, unmute when in view
+const heroObserver = new IntersectionObserver(function(entries) {
+entries.forEach(function(entry) {
+heroVisible = entry.isIntersecting;
+if (entry.isIntersecting) {
+const p = heroVideo.play();
+if (p !== undefined) {
+p.then(function() {
+// Only unmute if user has interacted AND hasn't manually muted
+if (userInteracted && !heroManuallyUnmuted) {
+heroVideo.muted = false;
+setHeroSoundIcon(false);
+}
+}).catch(function() {});
+}
+} else {
+// Scrolled away — always mute
+heroVideo.muted = true;
+setHeroSoundIcon(true);
+}
+});
+}, { threshold: 0.4 });
+heroObserver.observe(heroVideo.parentElement);
+
 if (heroSoundToggle) {
 heroSoundToggle.addEventListener('click', function() {
 if (!heroVideo) return;
 heroVideo.muted = !heroVideo.muted;
 setHeroSoundIcon(heroVideo.muted);
-if (!heroVideo.muted) heroAudioUnlocked = true;
+if (!heroVideo.muted) {
+userInteracted = true;
+heroManuallyUnmuted = true;
+} else {
+heroManuallyUnmuted = false;
+}
 });
 }
 }
-function unlockHeroAudio() {
-heroAudioUnlocked = true;
-if (heroVideo && heroVideo.muted) {
-heroVideo.muted = false;
-setHeroSoundIcon(false);
-}
-document.removeEventListener('click', unlockHeroAudio);
-document.removeEventListener('touchstart', unlockHeroAudio);
-document.removeEventListener('scroll', unlockHeroAudio);
-document.removeEventListener('keydown', unlockHeroAudio);
-}
-document.addEventListener('click', unlockHeroAudio);
-document.addEventListener('touchstart', unlockHeroAudio);
-document.addEventListener('scroll', unlockHeroAudio);
-document.addEventListener('keydown', unlockHeroAudio);
+
+// ============ CINEMATIC VIDEO — Auto-play with sound on scroll ============
 const cinematicVideo = document.getElementById('cinematicVideo');
 const cinematicSoundToggle = document.getElementById('cinematicSoundToggle');
 const cinematicSoundIcon = document.getElementById('cinematicSoundIcon');
 let cinematicSectionVisible = false;
+let cinematicManuallyUnmuted = false;
+
 function setCinematicSoundIcon(isMuted) {
 if (isMuted) {
 cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
@@ -2568,11 +2602,13 @@ cinematicSoundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11
 if (cinematicSoundToggle) cinematicSoundToggle.classList.remove('muted');
 }
 }
+
 if (cinematicVideo) {
 cinematicVideo.muted = true;
 cinematicVideo.loop = true;
 const playPromise = cinematicVideo.play();
 if (playPromise !== undefined) playPromise.catch(function() {});
+
 const observer = new IntersectionObserver(function(entries) {
 entries.forEach(function(entry) {
 cinematicSectionVisible = entry.isIntersecting;
@@ -2580,28 +2616,37 @@ if (entry.isIntersecting) {
 const p = cinematicVideo.play();
 if (p !== undefined) {
 p.then(function() {
-if (userInteracted) {
+if (userInteracted && !cinematicManuallyUnmuted) {
 cinematicVideo.muted = false;
 setCinematicSoundIcon(false);
 }
 }).catch(function() {});
 }
 } else {
+// Scrolled away — always mute
 cinematicVideo.muted = true;
 setCinematicSoundIcon(true);
 }
 });
 }, { threshold: 0.4 });
 observer.observe(cinematicVideo.parentElement);
+
 if (cinematicSoundToggle) {
 cinematicSoundToggle.addEventListener('click', function() {
 if (!cinematicVideo) return;
 cinematicVideo.muted = !cinematicVideo.muted;
 setCinematicSoundIcon(cinematicVideo.muted);
-if (!cinematicVideo.muted) userInteracted = true;
+if (!cinematicVideo.muted) {
+userInteracted = true;
+cinematicManuallyUnmuted = true;
+} else {
+cinematicManuallyUnmuted = false;
+}
 });
 }
 }
+
+// ============ CONTACT FORM → WHATSAPP ============
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
 contactForm.addEventListener('submit', function(e) {
@@ -2619,6 +2664,8 @@ window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 contactForm.reset();
 });
 }
+
+// ============ FAQ MODAL — Collection Order ============
 const faqOverlay = document.getElementById('faqOverlay');
 const faqClose = document.getElementById('faqClose');
 const faqCollectionBadge = document.getElementById('faqCollectionBadge');
@@ -2626,6 +2673,7 @@ const faqFullSet = document.getElementById('faqFullSet');
 const faqSeparate = document.getElementById('faqSeparate');
 const orderButtons = document.querySelectorAll('.collection-order-trigger');
 let currentCollection = '';
+
 function openFaq(collectionName) {
 currentCollection = collectionName || '';
 if (collectionName) {
@@ -2640,14 +2688,17 @@ document.getElementById('faqSeparateTitle').textContent = 'I want to buy separat
 }
 faqOverlay.classList.add('active');
 }
+
 function closeFaq() {
 faqOverlay.classList.remove('active');
 }
+
 function sendWhatsApp(message) {
 const text = encodeURIComponent(message);
 window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
 closeFaq();
 }
+
 orderButtons.forEach(function(btn) {
 btn.addEventListener('click', function(e) {
 e.preventDefault();
@@ -2655,6 +2706,7 @@ const collection = btn.getAttribute('data-collection');
 openFaq(collection);
 });
 });
+
 if (faqClose) faqClose.addEventListener('click', function(e) { e.preventDefault(); closeFaq(); });
 if (faqOverlay) {
 faqOverlay.addEventListener('click', function(e) {
@@ -2664,6 +2716,7 @@ if (e.target === faqOverlay) closeFaq();
 document.addEventListener('keydown', function(e) {
 if (e.key === 'Escape' && faqOverlay.classList.contains('active')) closeFaq();
 });
+
 if (faqFullSet) {
 faqFullSet.addEventListener('click', function(e) {
 e.preventDefault();
