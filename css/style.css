@@ -586,3 +586,24 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
 .collection-desc-armenian {
   font-style: normal !important;
 }
+/* ========================================
+   FINAL FOOTER LOGO FIX (Forces visibility)
+======================================== */
+.footer-logo {
+  height: 60px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* This removes any old filters that were turning it white/invisible */
+  filter: none !important; 
+  background: transparent !important;
+}
+
+.footer-logo-column {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
