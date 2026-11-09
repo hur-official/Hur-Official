@@ -451,3 +451,50 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
     font-size: 15px;
   }
 }
+/* =====================================
+   HUR FOOTER LOGO VISIBILITY
+===================================== */
+
+.footer-brand {
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  visibility: visible;
+  opacity: 1;
+  max-width: 100%;
+}
+
+.footer-logo {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: 64px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1)
+          drop-shadow(0 2px 5px rgba(255,255,255,.15));
+}
+
+@media (max-width: 768px) {
+  .footer-brand {
+    align-items: center;
+  }
+
+  .footer-logo-wrap {
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .footer-logo {
+    height: 52px;
+    max-width: 180px;
+    object-position: center;
+  }
+}
