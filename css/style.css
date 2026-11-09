@@ -652,3 +652,40 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
     }
 
 }
+/* ========================================
+   FIX: Runes Collection Sizing to match Areva
+======================================== */
+
+/* 1. Increase price font size to match Areva */
+.rune-pricelist .pricelist-price {
+    font-size: 18px; /* Increased from 13px */
+    font-weight: 600; /* Added weight to match Areva */
+    letter-spacing: 0.5px;
+}
+
+/* 2. Increase product title font size */
+.rune-pricelist .pricelist-info h3 {
+    font-size: 15px; /* Increased from 12px */
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+/* 3. Adjust mobile sizes to match Areva mobile sizes */
+@media screen and (max-width: 767px) {
+    .rune-pricelist .pricelist-price {
+        font-size: 15px; /* Increased from 12px */
+    }
+    .rune-pricelist .pricelist-info h3 {
+        font-size: 13px; /* Increased from 10px */
+    }
+    /* Optional: Match Areva's tighter mobile grid gap */
+    .rune-pricelist .pricelist-grid {
+        gap: 18px 12px; 
+    }
+}
+
+/* 4. Optional: Make Runes image aspect ratio match Areva (3/4) */
+.rune-pricelist .pricelist-image img {
+    aspect-ratio: 3 / 4; /* Changed from 4 / 5 */
+}
