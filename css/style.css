@@ -499,193 +499,118 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
   }
 }
 /* ========================================
-   RUNE COLLECTION PRICE LIST
+   RUNE COLLECTION - MATCHES AREVA SIZES
+   (Desktop + Mobile)
 ======================================== */
 
-.rune-pricelist {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 70px 5%;
-    box-sizing: border-box;
+/* --- DESKTOP --- */
+#rune .rune-pricelist {
+    width: 100% !important;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    padding: 70px 5% !important;
 }
 
-.rune-pricelist .pricelist-header {
-    text-align: center;
-    margin-bottom: 50px;
+#rune .pricelist-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
 }
 
-.rune-pricelist .pricelist-subtitle {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    opacity: 0.65;
+#rune .pricelist-item {
+    min-width: 0 !important;
+    text-align: center !important;
 }
 
-.rune-pricelist .pricelist-header h2 {
-    font-family: inherit;
-    font-size: clamp(30px, 4vw, 48px);
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin: 0;
+#rune .pricelist-image {
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
+    overflow: hidden !important;
+    border-radius: 4px !important;
+    background: #2a2a2a !important;
 }
 
-.rune-pricelist .pricelist-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 35px 22px;
+#rune .pricelist-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.6s ease !important;
 }
 
-.rune-pricelist .pricelist-item {
-    min-width: 0;
-    text-align: center;
+#rune .pricelist-item:hover .pricelist-image img {
+    transform: scale(1.05) !important;
 }
 
-.rune-pricelist .pricelist-image {
-    width: 100%;
-    overflow: hidden;
-    background: #f7f6f3;
+#rune .pricelist-info {
+    padding: 12px 5px 10px !important;
 }
 
-.rune-pricelist .pricelist-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+#rune .pricelist-info h3 {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    margin: 0 0 8px 0 !important;
+    text-align: center !important;
+    color: #ffffff !important;
 }
 
-.rune-pricelist .pricelist-item:hover
-.pricelist-image img {
-    transform: scale(1.035);
+#rune .pricelist-price {
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
 }
 
-.rune-pricelist .pricelist-info {
-    padding: 17px 5px 5px;
+#rune .pricelist-price small {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+    color: #d4b88a !important;
 }
 
-.rune-pricelist .pricelist-info h3 {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    margin: 0 0 9px;
-}
-
-.rune-pricelist .pricelist-price {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin: 0;
-}
-
-
-/* ========================================
-   RUNE MOBILE RESPONSIVE
-======================================== */
-
-@media screen and (max-width: 767px) {
-
-    .rune-pricelist {
-        padding: 45px 16px;
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+    #rune .rune-pricelist {
+        padding: 45px 16px !important;
     }
 
-    .rune-pricelist .pricelist-header {
-        margin-bottom: 30px;
+    #rune .pricelist-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px 12px !important;
     }
 
-    .rune-pricelist .pricelist-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 25px 12px;
+    #rune .pricelist-image {
+        aspect-ratio: 3 / 4 !important;
     }
 
-    .rune-pricelist .pricelist-image img {
-        aspect-ratio: 4 / 5;
+    #rune .pricelist-info {
+        padding: 8px 4px 8px !important;
     }
 
-    .rune-pricelist .pricelist-info {
-        padding-top: 12px;
+    #rune .pricelist-info h3 {
+        font-size: 12px !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 6px !important;
     }
 
-    .rune-pricelist .pricelist-info h3 {
-        font-size: 10px;
-        letter-spacing: 1.5px;
+    #rune .pricelist-price {
+        font-size: 17px !important;
     }
 
-    .rune-pricelist .pricelist-price {
-        font-size: 12px;
+    #rune .pricelist-price small {
+        font-size: 9px !important;
     }
 }
 
-
-/* ========================================
-   FOOTER LOGO REPLACEMENT
-======================================== */
-
-.footer-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent !important;
-    padding: 0;
-    border: none;
-    overflow: hidden;
-}
-
-.footer-logo img {
-    display: block;
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    object-fit: contain;
-    background: transparent;
-}
-
-/* Mobile footer logo */
-
-@media screen and (max-width: 767px) {
-
-    .footer-logo img {
-        max-width: 120px;
-    }
-
-}
-/* ========================================
-   FIX: Runes Collection Sizing to match Areva
-======================================== */
-
-/* 1. Increase price font size to match Areva */
-.rune-pricelist .pricelist-price {
-    font-size: 18px; /* Increased from 13px */
-    font-weight: 600; /* Added weight to match Areva */
-    letter-spacing: 0.5px;
-}
-
-/* 2. Increase product title font size */
-.rune-pricelist .pricelist-info h3 {
-    font-size: 15px; /* Increased from 12px */
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-}
-
-/* 3. Adjust mobile sizes to match Areva mobile sizes */
-@media screen and (max-width: 767px) {
-    .rune-pricelist .pricelist-price {
-        font-size: 15px; /* Increased from 12px */
-    }
-    .rune-pricelist .pricelist-info h3 {
-        font-size: 13px; /* Increased from 10px */
-    }
-    /* Optional: Match Areva's tighter mobile grid gap */
-    .rune-pricelist .pricelist-grid {
-        gap: 18px 12px; 
+/* --- SMALL MOBILE (max-width: 380px) --- */
+@media (max-width: 380px) {
+    #rune .pricelist-price {
+        font-size: 15px !important;
     }
 }
 
-/* 4. Optional: Make Runes image aspect ratio match Areva (3/4) */
-.rune-pricelist .pricelist-image img {
-    aspect-ratio: 3 / 4; /* Changed from 4 / 5 */
-}
