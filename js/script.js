@@ -124,3 +124,43 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&faqOverlay.
 if(faqFullSet){faqFullSet.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I would like to order the full '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
 if(faqSeparate){faqSeparate.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I am interested in buying separately from the '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
 })();
+/* =====================================
+   HUR VIDEO PLAYBACK OPTIMIZATION
+===================================== */
+
+(() => {
+  const videos = [
+    document.getElementById('heroVideo'),
+    document.getElementById('popupVideo')
+  ].filter(Boolean);
+
+  videos.forEach((video) => {
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('preload', 'metadata');
+
+    if (video.id === 'heroVideo') {
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+
+      const startVideo = () => {
+        if (document.visibilityState === 'visible') {
+          video.play().catch(() => {});
+        }
+      };
+
+      video.addEventListener('canplay', startVideo, {
+        once: true
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          startVideo();
+        } else {
+          video.pause();
+        }
+      });
+    }
+  });
+})();
