@@ -613,4 +613,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
         font-size: 15px !important;
     }
 }
-
+/* ========================================
+   FIX: Armenian Text to Straight (Normal)
+======================================== */
+.collection-desc-armenian {
+    font-style: normal !important;
+}
