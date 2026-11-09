@@ -394,9 +394,6 @@ Order this collection
 
 </div>
 </div>
-
-    
-</div>
 </section>
 
   <section class="collection-block dark reveal" id="rune">
@@ -524,7 +521,6 @@ Order this collection
 
     </div>
   </div>
-</div>
 </section>
 <section class="collection-block cream reveal" id="glow">
 <div class="collection-hero reverse">
@@ -569,7 +565,6 @@ Order this collection
 
     </div>
   </div>
-</div>
 </section>
 <div id="lb-a1" class="lightbox"><div class="lightbox-content">
 <a href="#areva" class="lightbox-close">✕</a>
@@ -892,6 +887,87 @@ Send via WhatsApp
     <p>&copy; 2026 <a href="#">HUR Official</a>. All rights reserved. Crafted with love in Yerevan.</p>
   </div>
 </footer>
+
+<!-- SMART WHATSAPP ORDER LOGIC -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const faqOverlay = document.getElementById('faqOverlay');
+    const faqFullSet = document.getElementById('faqFullSet');
+    const faqSeparate = document.getElementById('faqSeparate');
+    const faqCollectionBadge = document.getElementById('faqCollectionBadge');
+
+    // Update badge when "Order this collection" is clicked
+    document.querySelectorAll('.collection-order-trigger').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const collection = this.getAttribute('data-collection') || 'HUR';
+            if (faqCollectionBadge) {
+                faqCollectionBadge.textContent = collection + ' Collection';
+            }
+        });
+    });
+
+    // Helper to get the current collection name
+    function getCurrentCollection() {
+        return faqCollectionBadge ? faqCollectionBadge.textContent.replace(' Collection', '') : 'HUR';
+    }
+
+    // Function to handle the WhatsApp redirect and show success message
+    function processOrder(type) {
+        const collectionName = getCurrentCollection();
+        const phoneNumber = '37455977911';
+        let message = '';
+
+        if (type === 'full') {
+            message = `Hello HUR Team, I would like to order the complete *${collectionName}* collection. Please share the details and next steps.`;
+        } else {
+            message = `Hello HUR Team, I would like to buy individual pieces from the *${collectionName}* collection. Please share the available options.`;
+        }
+
+        // Open WhatsApp
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+
+        // Show Premium Success Message inside the modal
+        const faqContent = document.querySelector('.faq-content');
+        if (faqContent) {
+            faqContent.innerHTML = `
+                <button class="faq-close" onclick="document.getElementById('faqOverlay').classList.remove('active')" aria-label="Close">✕</button>
+                <div class="faq-handle"></div>
+                <div style="text-align: center; padding: 2rem 1rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#b8935a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px; margin-bottom: 1.5rem;">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--dark); margin-bottom: 1rem; font-weight: 500;">Request Received</h3>
+                    <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 2rem; font-size: 0.95rem;">
+                        Thank you for choosing HUR. <br>
+                        Your request has been securely transmitted. Our dedicated sales manager will review your selection and reach out to you shortly via WhatsApp to assist with your order.
+                    </p>
+                    <button onclick="document.getElementById('faqOverlay').classList.remove('active')" style="padding: 0.85rem 2rem; background: var(--dark); color: var(--white); border: none; border-radius: 50px; cursor: pointer; font-size: 0.75rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: var(--transition);">
+                        Continue Browsing
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    // Attach events to the buttons
+    if (faqFullSet) {
+        faqFullSet.addEventListener('click', function(e) {
+            e.preventDefault();
+            processOrder('full');
+        });
+    }
+
+    if (faqSeparate) {
+        faqSeparate.addEventListener('click', function(e) {
+            e.preventDefault();
+            processOrder('separate');
+        });
+    }
+});
+</script>
+
 <script src="js/script.js" defer></script>
 </body>
 </html>
