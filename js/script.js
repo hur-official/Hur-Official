@@ -123,11 +123,27 @@ if(faqOverlay){faqOverlay.addEventListener('click',function(e){if(e.target===faq
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&faqOverlay.classList.contains('active'))closeFaq()});
 if(faqFullSet){faqFullSet.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I would like to order the full '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
 if(faqSeparate){faqSeparate.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I am interested in buying separately from the '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
+
+// ==========================================
+// NEW UX IMPROVEMENT: Auto-close mobile menu 
+// when a navigation link is clicked
+// ==========================================
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelectorAll('.nav-bar a');
+if (menuToggle && navLinks.length > 0) {
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Uncheck the hidden checkbox to trigger the CSS :has() close animation
+      menuToggle.checked = false;
+    });
+  });
+}
+
 })();
+
 /* =====================================
    HUR VIDEO PLAYBACK OPTIMIZATION
 ===================================== */
-
 (() => {
   const videos = [
     document.getElementById('heroVideo'),
