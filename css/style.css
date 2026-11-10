@@ -438,7 +438,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
   .logo-link {
     margin: 0 auto;
   }
-  .top-bar-logo { height: 35px; }
+  .top-bar-logo { height: 45px; }
   
   .top-icons {
     position: absolute;
