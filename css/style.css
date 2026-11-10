@@ -414,8 +414,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
 @media (max-width: 768px) {
   .search-bar { display: none; }
   
-  /* HIDE LONG DESKTOP TEXT/IMAGES, KEEP PRODUCT GRID & PRICES */
-  .collection-hero { display: none !important; }
+  /* HIDE ENTIRE DESKTOP COLLECTION SECTIONS ON MOBILE */
+  .collection-block { display: none !important; }
   
   /* TOP LEFT HAMBURGER MENU */
   .menu-toggle-label { 
