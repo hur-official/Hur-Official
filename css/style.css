@@ -413,14 +413,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
 
 @media (max-width: 768px) {
   .search-bar { display: none; }
-
-   @media (max-width: 768px) {
-  .search-bar { display: none; }
   
-  /* ADD THIS LINE TO HIDE DESKTOP COLLECTIONS ON MOBILE */
-  .collection-block { display: none !important; }
-
-  /* ... keep the rest of your mobile CSS below this ... */
+  /* HIDE LONG DESKTOP TEXT/IMAGES, KEEP PRODUCT GRID & PRICES */
+  .collection-hero { display: none !important; }
   
   /* TOP LEFT HAMBURGER MENU */
   .menu-toggle-label { 
@@ -463,7 +458,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
     border-bottom: 1px solid #eee;
   }
   
-  /* Modern CSS :has() selector to toggle menu without extra JS */
   body:has(#menu-toggle:checked) .nav-bar {
     transform: translateY(0);
   }
