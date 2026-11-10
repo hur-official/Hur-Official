@@ -413,6 +413,14 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
 
 @media (max-width: 768px) {
   .search-bar { display: none; }
+
+   @media (max-width: 768px) {
+  .search-bar { display: none; }
+  
+  /* ADD THIS LINE TO HIDE DESKTOP COLLECTIONS ON MOBILE */
+  .collection-block { display: none !important; }
+
+  /* ... keep the rest of your mobile CSS below this ... */
   
   /* TOP LEFT HAMBURGER MENU */
   .menu-toggle-label { 
