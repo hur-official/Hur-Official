@@ -75,6 +75,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--white);line
 .collection-modal-divider{width:40px;height:1px;background:var(--gold);margin:1.75rem 0}
 .collection-modal-pieces-title{font-family:var(--font-heading);font-size:1.35rem;font-weight:500;color:var(--dark);margin-bottom:1.25rem;letter-spacing:.5px}
 .collection-modal-pieces-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-bottom:1.75rem}
+.collection-modal-piece-wrapper{display:flex;flex-direction:column}
 .collection-modal-piece{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:6px;background:var(--cream);cursor:pointer;transition:var(--transition)}
 .collection-modal-piece:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
 .collection-modal-piece img{width:100%;height:100%;object-fit:contain;object-position:center;padding:.75rem;transition:transform .6s ease}
