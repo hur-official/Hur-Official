@@ -123,33 +123,15 @@ if(faqOverlay){faqOverlay.addEventListener('click',function(e){if(e.target===faq
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&faqOverlay.classList.contains('active'))closeFaq()});
 if(faqFullSet){faqFullSet.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I would like to order the full '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
 if(faqSeparate){faqSeparate.addEventListener('click',function(e){e.preventDefault();const collectionName=currentCollection||'HUR';const msg='Hello HUR! I am interested in buying separately from the '+collectionName+' collection 🤍';sendWhatsApp(msg)})}
-// ==========================================
-// FORCE CLOSE MOBILE MENU ON LINK CLICK
-// ==========================================
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelectorAll('.nav-bar a');
 
-if (menuToggle && navLinks.length > 0) {
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      // Immediately uncheck the box to close the menu
-      menuToggle.checked = false;
-      
-      // Optional: If the link is an anchor (like #collections), 
-      // we let it scroll, but the menu will be gone.
-    });
-  });
-}
 // ==========================================
-// NEW UX IMPROVEMENT: Auto-close mobile menu 
-// when a navigation link is clicked
+// AUTO-CLOSE MOBILE MENU ON LINK CLICK
 // ==========================================
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelectorAll('.nav-bar a');
 if (menuToggle && navLinks.length > 0) {
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
-      // Uncheck the hidden checkbox to trigger the CSS :has() close animation
       menuToggle.checked = false;
     });
   });
@@ -182,9 +164,7 @@ if (menuToggle && navLinks.length > 0) {
         }
       };
 
-      video.addEventListener('canplay', startVideo, {
-        once: true
-      });
+      video.addEventListener('canplay', startVideo, { once: true });
 
       document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
