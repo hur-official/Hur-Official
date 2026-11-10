@@ -6,10 +6,15 @@ heroImg:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.33.
 tag:'Collection I',
 title:'AREVA',
 subtitle:'by HUR ⛓🤍',
-descArmenian:[],
-descGold:'',
-descEnglish:['A symbol of the sun, rooted in Armenian stone.','Reimagined in silver.','Ancient form. Modern silver. ♾️'],
-pieces:['https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.17.jpg?v=1792575374','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.30.jpg?v=1792575373','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.38.jpg?v=1792575373','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.47.jpg?v=1792575374','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.47.05.jpg?v=1792576050','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.49.51.jpg?v=1792576299']
+descArmenian:['Հայկական քարի մեջ պահպանված արևի խորհրդանիշը՝','վերաիմաստավորված արծաթի մեջ։'],
+descGold:'Լույս։ Կյանք։ Շարունակություն։',
+descEnglish:['A symbol of the sun, rooted in Armenian stone.','Reimagined in silver.','Ancient form. Modern silver.'],
+pieces:[
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.30.jpg?v=1792575373', price:'38,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.38.jpg?v=1792575373', price:'27,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.34.47.jpg?v=1792575374', price:'18,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.47.05.jpg?v=1792576050', price:'33,000'}
+]
 },
 RUNE:{
 heroImg:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2113.54.54.jpg?v=1792576557',
@@ -19,27 +24,36 @@ subtitle:'by HUR ⛓',
 descArmenian:[],
 descGold:'',
 descEnglish:['RUNE is a study of contrasts — polished silver, raw texture and a sharp silhouette.','A reminder that strength doesn\'t always need to be loud.','Wear your mark.'],
-pieces:['https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.18.jpg?v=1792576618','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.01.jpg?v=1792576618','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.23.jpg?v=1792576618','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.11.jpg?v=1792576618']
+pieces:[
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.11.jpg?v=1792576618', price:'24,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-21_13.56.01.jpg?v=1792576618', price:'33,000'}
+]
 },
 HALO:{
 heroImg:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.42.jpg?v=1792577243',
 tag:'Collection III',
 title:'HALO',
 subtitle:'Collection 🤍⛓',
-descArmenian:[],
+descArmenian:['Պարզությունը երբեմն ամենահամարձակ ընտրությունն է։','HALO-ն մարմնավորում է լույսի, ձևի և հավասարակշռության ներդաշնակությունը։','Յուրաքանչյուր շրջան հիշեցնում է անվերջ շարժման, ամբողջականության և լուռ ուժի մասին։','Այս գաղափարն է դարձել հավաքածուի հիմքը. շրջանը խորհրդանշում է ներքին լույսը, իսկ արծաթի և սպիտակ քվարցի համադրությունը փոխանցում է այդ մաքրությունն ու պարզությունը։ Այս հավաքածուն ստեղծված է հիշեցնելու, որ իսկական լույսը միշտ գալիս է ներսից։'],
 descGold:'',
 descEnglish:['HALO by HUR'],
-pieces:['https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.46.jpg?v=1792577243','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.55.jpg?v=1792577242','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.05.06.jpg?v=1792577243','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.05.15.jpg?v=1792577243']
+pieces:[
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.46.jpg?v=1792577243', price:'30,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.04.55.jpg?v=1792577242', price:'55,000'},
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.05.15.jpg?v=1792577243', price:'25,000'}
+]
 },
 GLOW:{
 heroImg:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.00.jpg?v=1792577437',
 tag:'Collection IV',
 title:'GLOW Cuff',
 subtitle:'by HUR 🧡️',
-descArmenian:[],
+descArmenian:['Առաջին անգամ՝ քար HUR-ի զարդերում։','Քարի մեղմ փայլն ու մուգ, տեքստուրային արծաթը միավորվում են՝ ստեղծելով հակադրություն, որն ունի իր յուրահատուկ բնավորությունը։','Նոր դետալ։ Նոր արտահայտություն։'],
 descGold:'',
-descEnglish:['Our first design featuring a stone.','A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.','A new expression of HUR. ⛓','HUR 🤍⛓️🔥'],
-pieces:['https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.05.jpg?v=1792577437','https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.09.jpg?v=1792577437']
+descEnglish:['Our first design featuring a stone.','A subtle glow meets dark, textured silver — creating a contrast of warmth and raw character.','A new expression of HUR.','HUR'],
+pieces:[
+  {img:'https://cdn.shopify.com/s/files/1/0680/7909/1850/files/2026-10-2114.10.09.jpg?v=1792577437', price:'24,000'}
+]
 }
 };
 const popup=document.getElementById('entryPopup');
@@ -99,7 +113,47 @@ const collectionModalClose=document.getElementById('collectionModalClose');
 const cmHeroImg=document.getElementById('cmHeroImg');
 const cmBody=document.getElementById('cmBody');
 const mobileCards=document.querySelectorAll('.mobile-collection-card');
-function openCollectionModal(collectionName){const data=collectionData[collectionName];if(!data)return;cmHeroImg.src=data.heroImg;cmHeroImg.alt=collectionName+' Collection';let html='';html+='<span class="collection-modal-tag">'+data.tag+'</span>';html+='<h2 class="collection-modal-title">'+data.title+'</h2>';html+='<p class="collection-modal-subtitle">'+data.subtitle+'</p>';if(data.descArmenian.length>0){data.descArmenian.forEach(function(line){html+='<p class="collection-modal-desc-armenian">'+line+'</p>'})}if(data.descGold){html+='<p class="collection-modal-desc" style="margin-top:1rem"><span class="gold-accent">'+data.descGold+'</span></p>'}if(data.descEnglish.length>0){html+='<div class="collection-modal-divider"></div>';data.descEnglish.forEach(function(line){html+='<p class="collection-modal-desc">'+line+'</p>'})}html+='<div class="collection-modal-divider"></div>';html+='<h3 class="collection-modal-pieces-title">The Pieces</h3>';html+='<div class="collection-modal-pieces-grid">';data.pieces.forEach(function(src){html+='<div class="collection-modal-piece"><img src="'+src+'" alt="'+collectionName+' piece"></div>'});html+='</div>';html+='<button class="collection-modal-order" data-collection="'+collectionName+'">';html+='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/><line x1="10" y1="11" x2="14" y2="11"/><line x1="12" y1="9" x2="12" y2="13"/></svg>';html+='Order this collection';html+='</button>';cmBody.innerHTML=html;const modalOrderBtn=cmBody.querySelector('.collection-modal-order');if(modalOrderBtn){modalOrderBtn.addEventListener('click',function(){openFaq(collectionName);closeCollectionModal()})}collectionModalOverlay.classList.add('active');document.body.style.overflow='hidden'}
+
+function openCollectionModal(collectionName){
+  const data=collectionData[collectionName];
+  if(!data)return;
+  cmHeroImg.src=data.heroImg;
+  cmHeroImg.alt=collectionName+' Collection';
+  let html='';
+  html+='<span class="collection-modal-tag">'+data.tag+'</span>';
+  html+='<h2 class="collection-modal-title">'+data.title+'</h2>';
+  html+='<p class="collection-modal-subtitle">'+data.subtitle+'</p>';
+  if(data.descArmenian.length>0){data.descArmenian.forEach(function(line){html+='<p class="collection-modal-desc-armenian">'+line+'</p>'})}
+  if(data.descGold){html+='<p class="collection-modal-desc" style="margin-top:1rem"><span class="gold-accent">'+data.descGold+'</span></p>'}
+  if(data.descEnglish.length>0){html+='<div class="collection-modal-divider"></div>';data.descEnglish.forEach(function(line){html+='<p class="collection-modal-desc">'+line+'</p>'})}
+  html+='<div class="collection-modal-divider"></div>';
+  html+='<h3 class="collection-modal-pieces-title">The Pieces</h3>';
+  html+='<div class="collection-modal-pieces-grid">';
+  data.pieces.forEach(function(piece){
+    html+='<div class="collection-modal-piece-wrapper">';
+    html+='<div class="collection-modal-piece"><img src="'+piece.img+'" alt="'+collectionName+' piece"></div>';
+    if(piece.price){
+      html+='<div class="hur-product-price"><span>'+piece.price+'</span><small>AMD</small></div>';
+    }
+    html+='</div>';
+  });
+  html+='</div>';
+  html+='<button class="collection-modal-order" data-collection="'+collectionName+'">';
+  html+='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/><line x1="10" y1="11" x2="14" y2="11"/><line x1="12" y1="9" x2="12" y2="13"/></svg>';
+  html+='Order this collection';
+  html+='</button>';
+  cmBody.innerHTML=html;
+  const modalOrderBtn=cmBody.querySelector('.collection-modal-order');
+  if(modalOrderBtn){
+    modalOrderBtn.addEventListener('click',function(){
+      openFaq(collectionName);
+      closeCollectionModal();
+    });
+  }
+  collectionModalOverlay.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
 function closeCollectionModal(){collectionModalOverlay.classList.remove('active');document.body.style.overflow=''}
 mobileCards.forEach(function(card){card.addEventListener('click',function(){const collection=card.getAttribute('data-collection');openCollectionModal(collection)})});
 if(collectionModalClose){collectionModalClose.addEventListener('click',function(e){e.preventDefault();closeCollectionModal()})}
